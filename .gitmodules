@@ -1,0 +1,3 @@
+[submodule "CS Capstone Project/Assets/Plugins/unity-plugin"]
+	path = CS Capstone Project/Assets/Plugins/unity-plugin
+	url = https://github.com/Emotiv/unity-plugin.git
