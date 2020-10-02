@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class TestEmotivScript : MonoBehaviour
 {
-    DataStreamManager _dataStream = DataStreamManager.Instance;
+    List<Headset> headsets = new List<Headset>();
+    bool headsetFound = false;
+    bool headsetSubscribed = false;
 
     void Start()
     {
-        _dataStream.StartAuthorize("");
-        StartCoroutine(checkForHeadsets());
+        DataStreamManager.Instance.StartAuthorize("");
+        // StartCoroutine(checkForHeadsets());
     }
 
     // Update is called once per frame
@@ -19,11 +21,47 @@ public class TestEmotivScript : MonoBehaviour
 
     }
 
+    void OnApplicationQuit()
+    {
+        Debug.Log("Application ending after " + Time.time + " seconds");
+        DataStreamManager.Instance.Stop();
+    }
+
+    public void clickToQuery() {
+        DataStreamManager.Instance.QueryHeadsets();
+    }
+
     IEnumerator checkForHeadsets() {
+        yield return new WaitForSecondsRealtime(10f);
         while(true) {
-            List<Headset> detectedHeadset = _dataStream.GetDetectedHeadsets();
-            print(detectedHeadset.Count);
-            yield return new WaitForSecondsRealtime(0.5f);
+
+            if (!headsetFound) {
+                headsets = DataStreamManager.Instance.GetDetectedHeadsets();
+                if(headsets.Count > 0) {
+                    headsetFound = true;
+                }
+                else {
+                    DataStreamManager.Instance.QueryHeadsets();
+                }
+            }
+
+            if(headsets.Count > 0 && !headsetFound) {
+                print(headsets[0].HeadsetID + headsets[0].HeadsetType);
+                headsetFound = true;
+            }
+            
+
+            if(headsetFound && !headsetSubscribed) {
+                List<string> dataStreamList = new List<string>(){DataStreamName.DevInfos, DataStreamName.EEG};
+                DataStreamManager.Instance.StartDataStream(dataStreamList, headsets[0].HeadsetID);
+                headsetSubscribed = true;
+            }
+
+            if(headsetSubscribed) {
+                // print(_dataStream.GetEEGChannels().Count);
+            }
+
+            yield return new WaitForSecondsRealtime(1f);
         }
     }
 }
