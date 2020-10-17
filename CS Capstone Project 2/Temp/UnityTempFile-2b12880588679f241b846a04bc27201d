@@ -1,12 +1,11 @@
 /target:library
 /nowarn:0169
-/out:Temp/Assembly-CSharp.dll
+/out:Temp/Unity.Analytics.DataPrivacy.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -16,8 +15,6 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.BaselibModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll"
-/reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll"
-/reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll"
@@ -37,6 +34,7 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ProfilerModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll"
+/reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.StreamingModule.dll"
@@ -69,33 +67,36 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEditor.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/Unity.Locator.dll"
-/reference:Library/ScriptAssemblies/Oculus.Platform.Editor.dll
-/reference:Library/ScriptAssemblies/Supyrb.Editor.dll
-/reference:Library/ScriptAssemblies/VRTK.Prefabs.Runtime.dll
-/reference:Library/ScriptAssemblies/Zinnia.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.Editor.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.Scripts.Editor.dll
-/reference:Library/ScriptAssemblies/Zinnia.Runtime.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.dll
-/reference:Library/ScriptAssemblies/Oculus.Platform.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
 /reference:Assets/Demigiant/DOTween/DOTween.dll
 /reference:Assets/Demigiant/DOTween/DOTween43.dll
 /reference:Assets/Demigiant/DOTween/DOTween46.dll
 /reference:Assets/Demigiant/DOTween/DOTween50.dll
+/reference:Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll
 /reference:Assets/Plugins/Emotiv-Unity-Plugin/Src/JsonNet/Newtonsoft.Json.dll
 /reference:Assets/Plugins/Emotiv-Unity-Plugin/Src/SuperSocket.ClientEngine.Core.0.10.0/SuperSocket.ClientEngine.dll
 /reference:Assets/Plugins/Emotiv-Unity-Plugin/Src/WebSocket4Net.0.15.2/WebSocket4Net.dll
+/reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll"
 /reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll"
+/reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll"
+/reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll"
+/reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll"
 /reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/io.extendreality.malimbe@9.6.1/Runtime/Malimbe.BehaviourStateRequirementMethod.dll"
 /reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/io.extendreality.malimbe@9.6.1/Runtime/Malimbe.MemberChangeMethod.dll"
 /reference:"C:/Users/Brandon Hang/Documents/ASU/CSE485/Capstone-Repository/CS Capstone Project 2/Library/PackageCache/io.extendreality.malimbe@9.6.1/Runtime/Malimbe.MemberClearanceMethod.dll"
@@ -235,7 +236,6 @@
 /define:ENABLE_AUDIO
 /define:ENABLE_CACHING
 /define:ENABLE_CLOTH
-/define:ENABLE_DUCK_TYPING
 /define:ENABLE_MICROPHONE
 /define:ENABLE_MULTIPLE_DISPLAYS
 /define:ENABLE_PHYSICS
@@ -274,32 +274,36 @@
 /define:INCLUDE_GI
 /define:ENABLE_MONO_BDWGC
 /define:PLATFORM_SUPPORTS_MONO
-/define:RENDER_SOFTWARE_CURSOR
 /define:INCLUDE_PUBNUB
 /define:ENABLE_VIDEO
 /define:ENABLE_CUSTOM_RENDER_TEXTURE
 /define:ENABLE_LOCALIZATION
-/define:PLATFORM_STANDALONE_WIN
-/define:PLATFORM_STANDALONE
-/define:UNITY_STANDALONE_WIN
-/define:UNITY_STANDALONE
+/define:PLATFORM_ANDROID
+/define:UNITY_ANDROID
+/define:UNITY_ANDROID_API
 /define:ENABLE_SUBSTANCE
-/define:ENABLE_RUNTIME_GI
-/define:ENABLE_MOVIES
+/define:ENABLE_EGL
 /define:ENABLE_NETWORK
+/define:ENABLE_RUNTIME_GI
 /define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
 /define:ENABLE_UNITYWEBREQUEST
 /define:ENABLE_CLOUD_SERVICES
 /define:ENABLE_CLOUD_SERVICES_ANALYTICS
+/define:ENABLE_EVENT_QUEUE
 /define:ENABLE_CLOUD_SERVICES_PURCHASING
 /define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
-/define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
-/define:ENABLE_EVENT_QUEUE
-/define:ENABLE_CLUSTER_SYNC
-/define:ENABLE_CLUSTERINPUT
+/define:ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING
+/define:PLATFORM_SUPPORTS_ADS_ID
+/define:UNITY_CAN_SHOW_SPLASH_SCREEN
 /define:ENABLE_VR
 /define:ENABLE_AR
-/define:ENABLE_WEBSOCKET_HOST
+/define:UNITY_HAS_GOOGLEVR
+/define:UNITY_HAS_TANGO
+/define:ENABLE_SPATIALTRACKING
+/define:ENABLE_RUNTIME_PERMISSIONS
+/define:UNITY_ASTC_ONLY_DECOMPRESS
+/define:ENABLE_UNITYADS_RUNTIME
+/define:UNITY_UNITYADS_API
 /define:ENABLE_MONO
 /define:NET_STANDARD_2_0
 /define:ENABLE_PROFILER
@@ -315,188 +319,6 @@
 /define:ENABLE_VSTU
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-Assets\_brain_visualizer\script\3D\Headset3DController.cs
-Assets\_brain_visualizer\script\Controller\1_Cortex\UI_ConnectingToCortex.cs
-Assets\_brain_visualizer\script\Controller\1_Cortex\UI_InstallEmotivApp.cs
-Assets\_brain_visualizer\script\Controller\1_Cortex\UI_LoginViaEmotivApp.cs
-Assets\_brain_visualizer\script\Controller\1_Cortex\UI_OfflineUseLimit.cs
-Assets\_brain_visualizer\script\Controller\1_Cortex\UI_TrialExpired.cs
-Assets\_brain_visualizer\script\Controller\BaseCanvasView.cs
-Assets\_brain_visualizer\script\Controller\BaseManager.cs
-Assets\_brain_visualizer\script\Controller\BaseMultipleElementView.cs
-Assets\_brain_visualizer\script\Controller\ConnectHeadset\ConnectHeadsetAdapter.cs
-Assets\_brain_visualizer\script\Controller\ConnectHeadset\ConnectHeadsetController.cs
-Assets\_brain_visualizer\script\Controller\ConnectHeadset\ConnectHeadsetElement.cs
-Assets\_brain_visualizer\script\Controller\ConnectHeadset\HeadsetGroup.cs
-Assets\_brain_visualizer\script\Controller\ConnectionIndicator\BaseIndicator.cs
-Assets\_brain_visualizer\script\Controller\ConnectionIndicator\BatteryIndicator.cs
-Assets\_brain_visualizer\script\Controller\ConnectionIndicator\ConnectionIndicatorGroup.cs
-Assets\_brain_visualizer\script\Controller\ConnectionIndicator\ConnectionQualityIndicator.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityBaseManager.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityColorSetting.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityController.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityEpocManager.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityInsightManager.cs
-Assets\_brain_visualizer\script\Controller\ContactQuality\ContactQualityNodeView.cs
-Assets\_brain_visualizer\script\Controller\CustomCursorController.cs
-Assets\_brain_visualizer\script\Controller\DataSubscriber\DataSubscriber.cs
-Assets\_brain_visualizer\script\Controller\MutlipleViewManager.cs
-Assets\_brain_visualizer\script\DeviceConnection\ConnectedDevice.cs
-Assets\_brain_visualizer\script\DeviceConnection\ConnectionHandler.cs
-Assets\_brain_visualizer\script\DI\GameControllerInstaller.cs
-Assets\Demigiant\DOTween\Examples\Basics.cs
-Assets\Demigiant\DOTween\Examples\Sequences.cs
-Assets\Oculus\AudioManager\Scenes\Scripts\TestScript.cs
-Assets\Oculus\AudioManager\Scripts\Audio\AmbienceEmitter.cs
-Assets\Oculus\AudioManager\Scripts\Audio\AudioManager.cs
-Assets\Oculus\AudioManager\Scripts\Audio\AudioManager_Sound.cs
-Assets\Oculus\AudioManager\Scripts\Audio\MinMaxAttribute.cs
-Assets\Oculus\AudioManager\Scripts\Audio\SoundEmitter.cs
-Assets\Oculus\AudioManager\Scripts\Audio\SoundFX.cs
-Assets\Oculus\AudioManager\Scripts\Audio\SoundFXRef.cs
-Assets\Oculus\AudioManager\Scripts\Utils\FastList.cs
-Assets\Oculus\AudioManager\Scripts\Utils\InspectorNoteAttribute.cs
-Assets\Oculus\Avatar\Samples\AvatarGallery\Scripts\OvrAvatarTestDriver.cs
-Assets\Oculus\Avatar\Samples\GripPoses\Scripts\PoseEditHelper.cs
-Assets\Oculus\Avatar\Samples\LocalAvatar\Scripts\GazeTargetSpawner.cs
-Assets\Oculus\Avatar\Samples\RemoteLoopback\Scripts\RemoteLoopbackManager.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\P2PManager.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\PlayerController.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RemotePlayer.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RoomManager.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\SocialPlatformManager.cs
-Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\VoipManager.cs
-Assets\Oculus\Avatar\Scripts\GazeTarget.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatar.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarAsset.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarAssetMesh.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarAssetTexture.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarBase.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarBody.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarComponent.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarDriver.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarHand.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarLocalDriver.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarLogger.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarMaterialManager.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarPacket.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarRemoteDriver.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarRenderComponent.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSDKCAPI.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSDKManager.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSettings.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSettingsEditor.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSkinnedMeshRenderComponent.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSkinnedMeshRenderPBSComponent.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarSkinnedMeshRenderPBSV2Component.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarTextureCopyManager.cs
-Assets\Oculus\Avatar\Scripts\OvrAvatarTouchController.cs
-Assets\Oculus\LipSync\Scenes\Scripts\EnableSwitch.cs
-Assets\Oculus\LipSync\Scenes\Scripts\LipSyncDemo_Control.cs
-Assets\Oculus\LipSync\Scenes\Scripts\LipSyncDemo_SetCurrentTarget.cs
-Assets\Oculus\LipSync\Scripts\Helpers\OVRLipSyncDebugConsole.cs
-Assets\Oculus\LipSync\Scripts\Helpers\OVRNamedArrayAttribute.cs
-Assets\Oculus\LipSync\Scripts\Helpers\OVRTouchpad.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSync.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncContext.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncContextBase.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncContextCanned.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncContextMorphTarget.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncContextTextureFlip.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncMicInput.cs
-Assets\Oculus\LipSync\Scripts\OVRLipSyncSequence.cs
-Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\Hand.cs
-Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\HandPose.cs
-Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\DebugUIBuilder.cs
-Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\HandedInputSelector.cs
-Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\LaserPointer.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\ColorGrabbable.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabbable.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabber.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabbableCrosshair.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs
-Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\PauseOnInputLoss.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\BoneCapsuleTriggerLogic.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ButtonController.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ButtonTriggerZone.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ColliderZone.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\HandsManager.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Interactable.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableRegistry.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableToolsCreator.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableToolsInputRouter.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\FingerTipPokeTool.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\FingerTipPokeToolView.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableTool.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableToolView.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\PinchStateModule.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\RayTool.cs
-Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\RayToolView.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionController.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionTeleport.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\SimpleCapsuleWithStickMovement.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandler.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerLaser.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerParabolic.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimVisualLaser.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportDestination.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandler.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerHMD.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerTouch.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandler.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandler360.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerHMD.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerThumbstick.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportPoint.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportSupport.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandler.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNavMesh.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNode.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerPhysical.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransition.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionBlink.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionInstant.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionWarp.cs
-Assets\Oculus\SampleFramework\Core\TouchControllers\TouchController.cs
-Assets\Oculus\SampleFramework\Core\Video\Plugins\Android\NativeVideoPlayer.cs
-Assets\Oculus\SampleFramework\Core\Video\Scripts\ButtonDownListener.cs
-Assets\Oculus\SampleFramework\Core\Video\Scripts\MediaPlayerImage.cs
-Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSample.cs
-Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSampleControls.cs
-Assets\Oculus\SampleFramework\Core\Video\Scripts\VectorUtil.cs
-Assets\Oculus\SampleFramework\Usage\DebugUI\DebugUISample.cs
-Assets\Oculus\SampleFramework\Usage\DistanceGrab\Scripts\DistanceGrabberSample.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\ControllerBoxController.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\CowController.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\HandsActiveChecker.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\PanelHMDFollower.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\SelectionCylinder.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainButtonVisualController.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCar.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCarBase.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCrossingController.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainLocomotive.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainTrack.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\Utils\Pose.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\WindmillBladesController.cs
-Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\WindmillController.cs
-Assets\Oculus\SampleFramework\Usage\Locomotion\Scripts\CharacterCapsule.cs
-Assets\Oculus\SampleFramework\Usage\Locomotion\Scripts\LocomotionSampleSupport.cs
-Assets\Oculus\SampleFramework\Usage\OVROverlay\Scripts\OVROverlaySample.cs
-Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Scripts\OVROverlayCanvas.cs
-Assets\Oculus\SampleFramework\Usage\StartScene\Scripts\StartMenu.cs
-"Assets\Oculus\Spatializer\scenes\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs"
-Assets\Oculus\Spatializer\scripts\helpers\ONSPReflectionZone.cs
-Assets\Oculus\Spatializer\scripts\OculusSpatializerUnity.cs
-Assets\Oculus\Spatializer\scripts\ONSPAmbisonicsNative.cs
-Assets\Oculus\Spatializer\scripts\ONSPAudioSource.cs
-Assets\Oculus\Spatializer\scripts\ONSPProfiler.cs
-Assets\Oculus\Spatializer\scripts\ONSPPropagationGeometry.cs
-Assets\Oculus\Spatializer\scripts\ONSPPropagationInterface.cs
-Assets\Oculus\Spatializer\scripts\ONSPPropagationMaterial.cs
-Assets\Oculus\Spatializer\scripts\ONSPPropagationSettings.cs
-Assets\Oculus\Spatializer\scripts\ONSPSettings.cs
-Assets\Oculus\Spatializer\scripts\ONSPVersion.cs
-Assets\PMDataTestScript.cs
+"C:\Users\Brandon Hang\Documents\ASU\CSE485\Capstone-Repository\CS Capstone Project 2\Library\PackageCache\com.unity.analytics@3.2.3\DataPrivacy\AssemblyInfo.cs"
+"C:\Users\Brandon Hang\Documents\ASU\CSE485\Capstone-Repository\CS Capstone Project 2\Library\PackageCache\com.unity.analytics@3.2.3\DataPrivacy\DataPrivacy.cs"
+"C:\Users\Brandon Hang\Documents\ASU\CSE485\Capstone-Repository\CS Capstone Project 2\Library\PackageCache\com.unity.analytics@3.2.3\DataPrivacy\DataPrivacyButton.cs"

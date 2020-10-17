@@ -1,14 +1,13 @@
 /target:library
 /nowarn:0169
-/out:Temp/Assembly-CSharp-Editor.dll
+/out:Temp/Oculus.VR.Scripts.Editor.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
-/reference:Library/ScriptAssemblies/Assembly-CSharp.dll
-/reference:Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
+/reference:Library/ScriptAssemblies/Oculus.VR.dll
+/reference:Library/ScriptAssemblies/Oculus.VR.Editor.dll
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -72,20 +71,6 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/UnityEditor.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.18f1\Editor\Data\Managed/Unity.Locator.dll"
-/reference:Library/ScriptAssemblies/Oculus.Platform.Editor.dll
-/reference:Library/ScriptAssemblies/Supyrb.Editor.dll
-/reference:Library/ScriptAssemblies/VRTK.Prefabs.Runtime.dll
-/reference:Library/ScriptAssemblies/Zinnia.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.Editor.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.Scripts.Editor.dll
-/reference:Library/ScriptAssemblies/Zinnia.Runtime.dll
-/reference:Library/ScriptAssemblies/Oculus.VR.dll
-/reference:Library/ScriptAssemblies/Oculus.Platform.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.18f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll"
@@ -258,7 +243,6 @@
 /define:ENABLE_AUDIO
 /define:ENABLE_CACHING
 /define:ENABLE_CLOTH
-/define:ENABLE_DUCK_TYPING
 /define:ENABLE_MICROPHONE
 /define:ENABLE_MULTIPLE_DISPLAYS
 /define:ENABLE_PHYSICS
@@ -297,32 +281,36 @@
 /define:INCLUDE_GI
 /define:ENABLE_MONO_BDWGC
 /define:PLATFORM_SUPPORTS_MONO
-/define:RENDER_SOFTWARE_CURSOR
 /define:INCLUDE_PUBNUB
 /define:ENABLE_VIDEO
 /define:ENABLE_CUSTOM_RENDER_TEXTURE
 /define:ENABLE_LOCALIZATION
-/define:PLATFORM_STANDALONE_WIN
-/define:PLATFORM_STANDALONE
-/define:UNITY_STANDALONE_WIN
-/define:UNITY_STANDALONE
+/define:PLATFORM_ANDROID
+/define:UNITY_ANDROID
+/define:UNITY_ANDROID_API
 /define:ENABLE_SUBSTANCE
-/define:ENABLE_RUNTIME_GI
-/define:ENABLE_MOVIES
+/define:ENABLE_EGL
 /define:ENABLE_NETWORK
+/define:ENABLE_RUNTIME_GI
 /define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
 /define:ENABLE_UNITYWEBREQUEST
 /define:ENABLE_CLOUD_SERVICES
 /define:ENABLE_CLOUD_SERVICES_ANALYTICS
+/define:ENABLE_EVENT_QUEUE
 /define:ENABLE_CLOUD_SERVICES_PURCHASING
 /define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
-/define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
-/define:ENABLE_EVENT_QUEUE
-/define:ENABLE_CLUSTER_SYNC
-/define:ENABLE_CLUSTERINPUT
+/define:ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING
+/define:PLATFORM_SUPPORTS_ADS_ID
+/define:UNITY_CAN_SHOW_SPLASH_SCREEN
 /define:ENABLE_VR
 /define:ENABLE_AR
-/define:ENABLE_WEBSOCKET_HOST
+/define:UNITY_HAS_GOOGLEVR
+/define:UNITY_HAS_TANGO
+/define:ENABLE_SPATIALTRACKING
+/define:ENABLE_RUNTIME_PERMISSIONS
+/define:UNITY_ASTC_ONLY_DECOMPRESS
+/define:ENABLE_UNITYADS_RUNTIME
+/define:UNITY_UNITYADS_API
 /define:ENABLE_MONO
 /define:NET_4_6
 /define:ENABLE_PROFILER
@@ -338,29 +326,8 @@
 /define:ENABLE_VSTU
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-Assets\_brain_visualizer\script\Editor\DiroxPipelineBuilder.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioImportPostProcessor.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioManagerInspector.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\MinMaxPropertyDrawer.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\MixerSnapshotPropertyDrawer.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\OSPPropsPropertyDrawer.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXPropertyDrawer.cs
-Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXRefPropertyDrawer.cs
-Assets\Oculus\AudioManager\Scripts\Utils\Editor\DrawerInspectorNote.cs
-Assets\Oculus\LipSync\Editor\OVRLipSyncBuildPostProcessor.cs
-Assets\Oculus\LipSync\Editor\OVRLipSyncContextMorphTargetEditor.cs
-Assets\Oculus\LipSync\Editor\OVRLipSyncTool.cs
-Assets\Oculus\LipSync\Editor\OVRNamedArrayPropertyDrawer.cs
-Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector.cs
-Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil.cs
-Assets\Oculus\SampleFramework\Core\Video\Editor\MediaPlayerImageEditor.cs
-Assets\Oculus\SampleFramework\Editor\BuildAssetPackages.cs
-Assets\Oculus\SampleFramework\Editor\OculusSampleFrameworkUtil.cs
-Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Editor\OVROverlayCanvasEditor.cs
-Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdater.cs
-Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdaterStub.cs
-Assets\Oculus\Spatializer\editor\ONSPAudioSourceEditor.cs
-Assets\Oculus\Spatializer\editor\ONSPPropagationGeometryEditor.cs
-Assets\Oculus\Spatializer\editor\ONSPPropagationMaterialEditor.cs
-Assets\Oculus\Spatializer\editor\ONSPPropagationSerializationManager.cs
-Assets\Oculus\Spatializer\editor\ONSPReflectionCustomGUI.cs
+Assets\Oculus\VR\Scripts\Editor\OVRCustomSkeletonEditor.cs
+Assets\Oculus\VR\Scripts\Editor\OVREditorUtil.cs
+Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor.cs
+Assets\Oculus\VR\Scripts\Editor\OVROverlayEditor.cs
+Assets\Oculus\VR\Scripts\Editor\OVRProjectConfigEditor.cs
