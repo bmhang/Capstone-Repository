@@ -5,8 +5,12 @@ using EmotivUnityPlugin;
 
 public class PMDataTestScript : MonoBehaviour
 {
+    /// <summary>Collects Performance Metric data from the Emotiv Data Subscriber and hides the UICamera once PM data has been subscribed to.</summary>
+ 
     public dirox.emotiv.controller.DataSubscriber dm;
     public Light directionalLight;
+    public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
+    public DialogueController dialogueController;
 
     private float engagement = -1;
     private float excitment = -1;
@@ -14,6 +18,8 @@ public class PMDataTestScript : MonoBehaviour
     private float interest = -1;
     private float relaxation = -1;
     private float stress = -1;
+
+    private bool dataStreamWorking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,7 @@ public class PMDataTestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Collect the Performance Metric Data
         if(DataStreamManager.Instance.GetPMLists().Count > 0) {
             foreach (var ele in DataStreamManager.Instance.GetPMLists()) {
                 string chanStr  = ele;
@@ -31,6 +38,7 @@ public class PMDataTestScript : MonoBehaviour
 
                 if(chanStr == "eng" && data > -1) {
                     engagement = (float)data;
+                    dataStreamWorking = true;
                 }
 
                 if(chanStr ==  "exc" && data > -1) {
@@ -52,12 +60,17 @@ public class PMDataTestScript : MonoBehaviour
                 if(chanStr == "str" && data > -1) {
                     stress = (float)data;
                 }
-
-                print("Stream: " + chanStr + " " + "Value: " + data);
             }
         }
 
-        directionalLight.transform.eulerAngles = new Vector3(360 * engagement, 0, 0);
+        //Hide the UICamera and start the dialogue system once data has started streaming from the headset
+        if(dataStreamWorking)
+        {
+            UICamera.gameObject.SetActive(false);
+            dialogueController.isDialogueActive = true;
+        }
+
+        directionalLight.transform.eulerAngles = new Vector3(360 * engagement, 0, 0); //TEMP
         print("ENGAGEMENT: " + engagement);
         print("EXCITMENT: " + excitment);
         print("FOCUS: " + focus);
