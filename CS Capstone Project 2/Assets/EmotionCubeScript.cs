@@ -22,7 +22,7 @@ public class EmotionCubeScript : MonoBehaviour
     void Update()
     {
         smooth = Time.deltaTime * durationTime;
-        cube.gameObject.transform.Rotate(new Vector3(vectorValues[0], vectorValues[1], vectorValues[2]) * smooth);
+        this.gameObject.transform.Rotate(new Vector3(vectorValues[0], vectorValues[1], vectorValues[2]) * smooth);
 
         
     }
