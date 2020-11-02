@@ -12,12 +12,12 @@ public class PMDataTestScript : MonoBehaviour
     public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
     public DialogueController dialogueController;
 
-    private float engagement = -1;
-    private float excitment = -1;
-    private float focus = -1;
-    private float interest = -1;
-    private float relaxation = -1;
-    private float stress = -1;
+    public float engagement = -1;
+    public float excitment = -1;
+    public float focus = -1;
+    public float interest = -1;
+    public float relaxation = -1;
+    public float stress = -1;
 
     private bool dataStreamWorking = false;
 
