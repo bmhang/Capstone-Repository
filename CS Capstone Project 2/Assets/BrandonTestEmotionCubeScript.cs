@@ -48,20 +48,18 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
         }
         this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.8f, this.transform.position.z);
 
-        //Excitement = (+P, +A, -D)
-        //Engagement = (+P, +A, +D)
-        //Meditation = Relaxation = (+P, -A, +D)
-        //Frustration = Stress = (-P, +A, -D)
-
+        //Calculating some vectors for moving the sphere based on that data from Dr. Gonzalez
         excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
         engV = new Vector3(pmDataCatcher.engagement, pmDataCatcher.engagement, pmDataCatcher.engagement);
         relV = new Vector3(pmDataCatcher.relaxation, -pmDataCatcher.relaxation, pmDataCatcher.relaxation);
         strV = new Vector3(-pmDataCatcher.stress, pmDataCatcher.stress, -pmDataCatcher.stress);
 
+        //Summing the vectors, normalizing the resulting vector to length 1, then assigning it to sphere location (and shrinking it by 0.5 so it stays inside the box)
         sphereLocation = excV + engV + relV + strV;
         sphereLocation.Normalize();
         sphereLocation = sphereLocation * 0.5f;
 
+        //Calling a coroutine called moveObject to move the sphere to its new location
         if (!isSphereMoving)
         {
             StartCoroutine(moveObject());
@@ -78,7 +76,11 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
         while (Vector3.Distance(sphere.transform.localPosition, sphereLocation) > 0)
         {   
             currentMovementTime += Time.deltaTime;
+
+            //Vector3.Lerp smoothly interpolates between two vectors -- this is how we make the sphere move!
             sphere.transform.localPosition = Vector3.Lerp(origin, sphereLocation, currentMovementTime / totalMovementTime);
+
+            //An IEnumerator interface always needs this line somewhere
             yield return null;
         }
 
