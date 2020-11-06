@@ -10,8 +10,8 @@
         /// <para>To get a client id and a client secret, you must connect to your Emotiv
         /// account on emotiv.com and create a Cortex app.
         /// https://www.emotiv.com/my-account/cortex-apps/.</para></summary>
-        public static string AppClientId            = "";
-        public static string AppClientSecret        = "";
+        public static string AppClientId            = "ySecV2p1HXHl8xaKkS4mu65NpSCCFUwyFNFCDE3n";
+        public static string AppClientSecret        = "gcXNGAprYLxvMBYKiPceeAysfqigEJSHWV0ofLEcnEqMFS9rxfbwidx8lK1PhlTVXpmxXP2OhqP543UwPMwmHJycgKtyU1jhdjVhgcPHcadQ8yGB9iDlDeperBqsI5i3";
 
          public static string AppUrl                 = "wss://localhost:6868"; // default
         public static string AppVersion             = "1.0.0"; // default

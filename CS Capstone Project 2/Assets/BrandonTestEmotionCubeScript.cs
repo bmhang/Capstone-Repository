@@ -49,13 +49,15 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
         this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.8f, this.transform.position.z);
 
         //Calculating some vectors for moving the sphere based on that data from Dr. Gonzalez
+        engV = new Vector3((pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2);
+        intV = new Vector3(pmDataCatcher.interest, pmDataCatcher.interest, -pmDataCatcher.interest);
         excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
-        engV = new Vector3(pmDataCatcher.engagement, pmDataCatcher.engagement, pmDataCatcher.engagement);
+        focV = new Vector3(pmDataCatcher.focus, -pmDataCatcher.focus, pmDataCatcher.focus);
         relV = new Vector3(pmDataCatcher.relaxation, -pmDataCatcher.relaxation, pmDataCatcher.relaxation);
         strV = new Vector3(-pmDataCatcher.stress, pmDataCatcher.stress, -pmDataCatcher.stress);
 
         //Summing the vectors, normalizing the resulting vector to length 1, then assigning it to sphere location (and shrinking it by 0.5 so it stays inside the box)
-        sphereLocation = excV + engV + relV + strV;
+        sphereLocation = engV + (.5f*(excV + intV)) + (.5f*(focV + relV)) + strV;
         sphereLocation.Normalize();
         sphereLocation = sphereLocation * 0.5f;
 
