@@ -8,7 +8,6 @@ public class PMDataTestScript : MonoBehaviour
     /// <summary>Collects Performance Metric data from the Emotiv Data Subscriber and hides the UICamera once PM data has been subscribed to.</summary>
  
     public dirox.emotiv.controller.DataSubscriber dm;
-    public Light directionalLight;
     public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
     public DialogueController dialogueController;
 
@@ -70,7 +69,6 @@ public class PMDataTestScript : MonoBehaviour
             dialogueController.isDialogueActive = true;
         }
 
-        directionalLight.transform.eulerAngles = new Vector3(360 * engagement, 0, 0); //TEMP
         print("ENGAGEMENT: " + engagement);
         print("EXCITMENT: " + excitment);
         print("FOCUS: " + focus);

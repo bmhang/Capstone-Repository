@@ -13,6 +13,7 @@ public class EmotionCubeScript : MonoBehaviour
     //This is a sphere
     public GameObject sphere;
     public GameObject cube;
+    public PMDataTestScript data = new PMDataTestScript();
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,19 @@ public class EmotionCubeScript : MonoBehaviour
             floatTime = 0;
         }
         this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.8f, this.transform.position.z);
+
+        //adjusting the position of the sphere
+        Vector3 excV = new Vector3(data.engagement, data.engagement, -data.engagement);
+        Vector3 engV = new Vector3(data.excitment, data.excitment, data.excitment);
+        //focV = new Vector3(PMDataTestScript.focus, PMDataTestScript.focus, PMDataTestScript.focus);
+        //intV = new Vector3(PMDataTestScript.interest, PMDataTestScript.interest, PMDataTestScript.interest);
+        Vector3 relV = new Vector3(data.relaxation, -data.relaxation, data.relaxation);
+        Vector3 strV = new Vector3(-data.stress, data.stress, -data.stress);
+
+        Vector3 sphereLocation = excV + engV + relV + strV;
+        sphereLocation.Normalize();
+        sphereLocation = sphereLocation * 0.5f;
+        sphere.transform.localPosition = sphereLocation;
     }
 }
+

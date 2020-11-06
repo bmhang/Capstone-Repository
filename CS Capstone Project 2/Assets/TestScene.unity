@@ -1571,6 +1571,7 @@ MonoBehaviour:
   durationTime: 0
   sphere: {fileID: 6434998}
   cube: {fileID: 2007615526}
+  data: {fileID: 661761973}
 --- !u!4 &434178440
 Transform:
   m_ObjectHideFlags: 0
@@ -2230,9 +2231,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dm: {fileID: 962412889}
-  directionalLight: {fileID: 1394598325}
   UICamera: {fileID: 1808998412}
   dialogueController: {fileID: 243208519}
+  engagement: -1
+  excitment: -1
+  focus: -1
+  interest: -1
+  relaxation: -1
+  stress: -1
 --- !u!4 &661761974
 Transform:
   m_ObjectHideFlags: 0
@@ -3927,12 +3933,12 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00032043457
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000045776367
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 224557009628845830, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
