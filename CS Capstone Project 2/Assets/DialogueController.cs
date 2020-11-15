@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class DialogueController : MonoBehaviour
 {
@@ -113,6 +114,10 @@ public class DialogueController : MonoBehaviour
                     //Here, we need to figure out how to branch the dialogue while keeping the currentDialogue
                     //variable incrementing up. You may want to try making another dialogue array and offsetting
                     //the value of currentDialogue so we can keep using it as an array index?
+                    Array.Resize(ref dialogueArray, dialogueArray.Length + 4);
+                    dialogueArray[currentDialogue+1] = "apple";
+                    currentDialogue++;
+                    dialogueArray[currentDialogue+1] = "banana";
                 }
                 else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button
                 {
@@ -120,6 +125,10 @@ public class DialogueController : MonoBehaviour
                     currentDialogue++;
                     textIsAnimating = true;
                     //Same thing as above. We need to continue the dialogue in a separate dialogue array.
+                    Array.Resize(ref dialogueArray, dialogueArray.Length + 4);
+                    dialogueArray[currentDialogue+1] = "sza";
+                    currentDialogue++;
+                    dialogueArray[currentDialogue+1] = "saba";
                 }
             }
             else
