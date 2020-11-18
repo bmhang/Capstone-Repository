@@ -50,6 +50,8 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
 
         //Calculating some vectors for moving the sphere based on that data from Dr. Gonzalez
         engV = new Vector3((pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2);
+        //use this if using Option2
+        //engV = new Vector3(pmDataCatcher.engagement, pmDataCatcher.engagement, pmDataCatcher.engagement;
         intV = new Vector3(pmDataCatcher.interest, pmDataCatcher.interest, -pmDataCatcher.interest);
         excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
         focV = new Vector3(pmDataCatcher.focus, -pmDataCatcher.focus, pmDataCatcher.focus);
@@ -58,6 +60,8 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
 
         //Summing the vectors, normalizing the resulting vector to length 1, then assigning it to sphere location (and shrinking it by 0.5 so it stays inside the box)
         sphereLocation = engV + (.5f*(excV + intV)) + (.5f*(focV + relV)) + strV;
+        //Option 2 for calculating PAD
+        //sphereLocation = engV + excV + intV + focV + relV + strV;
         sphereLocation.Normalize();
         sphereLocation = sphereLocation * 0.5f;
 
