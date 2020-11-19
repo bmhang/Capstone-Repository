@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798225, b: 0.00000005155705,
+  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798194, b: 0.00000005155705,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 47687042}
   - component: {fileID: 47687041}
   m_Layer: 0
-  m_Name: Spot Light (3)
+  m_Name: AmbientLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,6 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 63020528}
+  - component: {fileID: 63020529}
   m_Layer: 0
   m_Name: LightChanger
   m_TagString: Untagged
@@ -909,6 +910,34 @@ Transform:
   m_Father: {fileID: 612338369}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63020529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63020527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dc3886f331afa42bee901b8293d5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ceilingLight1: {fileID: 1697878618}
+  ceilingLight2: {fileID: 211487979}
+  ceilingLight3: {fileID: 1839076792}
+  ceilingLight4: {fileID: 2068278303}
+  ceilingLight5: {fileID: 2107691540}
+  ceilingLight6: {fileID: 1829949985}
+  mainTableLight: {fileID: 823717768}
+  crystalLight1: {fileID: 883796076}
+  crystalLight2: {fileID: 1645240991}
+  crystalLight3: {fileID: 1346988872}
+  crystalLight4: {fileID: 121031979}
+  spotLight1: {fileID: 1989670977}
+  spotLight2: {fileID: 4818037435035501278}
+  spotLight3: {fileID: 303680432}
+  ambientLight1: {fileID: 47687041}
+  ambientLight2: {fileID: 497668303}
 --- !u!1 &67589402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1330,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e5f6c578761bc4e41a03985bf01ba61b,
     type: 3}
   m_PrefabInstance: {fileID: 119078693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &121031979 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108980933910409966, guid: 5f285e9508d4e3f4488b284bb80a0b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2104137506}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &129387149
 GameObject:
@@ -3409,7 +3444,7 @@ GameObject:
   - component: {fileID: 497668302}
   - component: {fileID: 497668303}
   m_Layer: 0
-  m_Name: Spot Light (6)
+  m_Name: AmbientLight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4167,7 +4202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 605892829}
   m_Layer: 0
-  m_Name: CeilingLamp (6)
+  m_Name: MainTableLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6050,6 +6085,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883458645}
   m_CullTransparentMesh: 0
+--- !u!108 &883796076 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108980933910409966, guid: 5f285e9508d4e3f4488b284bb80a0b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1249185066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &889089756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8893,12 +8934,12 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000076293945
+      value: -0.00019836426
       objectReference: {fileID: 0}
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000091552734
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 224557009628845830, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
@@ -9165,6 +9206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b43a27b931bfe54daf445345127bdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!108 &1346988872 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108980933910409966, guid: 5f285e9508d4e3f4488b284bb80a0b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1833988499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1358827621
 GameObject:
   m_ObjectHideFlags: 0
@@ -10918,6 +10965,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629433627}
   m_CullTransparentMesh: 0
+--- !u!108 &1645240991 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108980933910409966, guid: 5f285e9508d4e3f4488b284bb80a0b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2070074095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647234241
 GameObject:
   m_ObjectHideFlags: 0
