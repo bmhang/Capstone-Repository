@@ -115,9 +115,8 @@ public class DialogueController : MonoBehaviour
                     //variable incrementing up. You may want to try making another dialogue array and offsetting
                     //the value of currentDialogue so we can keep using it as an array index?
                     Array.Resize(ref dialogueArray, dialogueArray.Length + 4);
-                    dialogueArray[currentDialogue+1] = "apple";
-                    currentDialogue++;
-                    dialogueArray[currentDialogue+1] = "banana";
+                    string[] dialogue = {"apple", "banana", "carrots", "dates"};
+                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue + 1, 4);
                 }
                 else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button
                 {
@@ -126,9 +125,8 @@ public class DialogueController : MonoBehaviour
                     textIsAnimating = true;
                     //Same thing as above. We need to continue the dialogue in a separate dialogue array.
                     Array.Resize(ref dialogueArray, dialogueArray.Length + 4);
-                    dialogueArray[currentDialogue+1] = "sza";
-                    currentDialogue++;
-                    dialogueArray[currentDialogue+1] = "saba";
+                    string[] dialogue = {"sza", "saba", "denzel", "freddie"};
+                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue + 1, 4);
                 }
             }
             else
