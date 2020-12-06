@@ -11,6 +11,8 @@ public class PMDataTestScript : MonoBehaviour
     public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
     public DialogueController dialogueController;
 
+    private readonly CortexClient _ctxClient = CortexClient.Instance;
+
     public float engagement = -1;
     public float excitment = -1;
     public float focus = -1;
@@ -18,7 +20,10 @@ public class PMDataTestScript : MonoBehaviour
     public float relaxation = -1;
     public float stress = -1;
 
+    public string receivedCortexMessage;
+
     private bool dataStreamWorking = false;
+    private string[] performanceValues;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +34,23 @@ public class PMDataTestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(_ctxClient.webSocketResponse != null)
+        {
+            performanceValues = _ctxClient.webSocketResponse.Split(',');
+
+            dataStreamWorking = true;
+            engagement = float.Parse(performanceValues[0]);
+            excitment = float.Parse(performanceValues[1]);
+            focus = float.Parse(performanceValues[5]);
+            interest = float.Parse(performanceValues[4]);
+            relaxation = float.Parse(performanceValues[3]);
+            stress = float.Parse(performanceValues[2]);
+        }
+
+
         //Collect the Performance Metric Data
-        if(DataStreamManager.Instance.GetPMLists().Count > 0) {
+        /*if(DataStreamManager.Instance.GetPMLists().Count > 0) {
             foreach (var ele in DataStreamManager.Instance.GetPMLists()) {
                 string chanStr  = ele;
                 double data     = DataStreamManager.Instance.GetPMData(ele);
@@ -60,10 +80,10 @@ public class PMDataTestScript : MonoBehaviour
                     stress = (float)data;
                 }
             }
-        }
+        }*/
 
         //Hide the UICamera and start the dialogue system once data has started streaming from the headset
-        if(dataStreamWorking)
+        if (dataStreamWorking)
         {
             UICamera.gameObject.SetActive(false);
             dialogueController.isDialogueActive = true;

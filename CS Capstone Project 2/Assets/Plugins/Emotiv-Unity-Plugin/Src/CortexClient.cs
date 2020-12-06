@@ -42,6 +42,9 @@ namespace EmotivUnityPlugin
         static readonly object _locker = new object();
         private Dictionary<int, string> _methodForRequestId;
 
+        //ADDED BY BRANDON
+        public string webSocketResponse;
+
         /// <summary>
         /// Websocket Client.
         /// </summary>
@@ -272,7 +275,13 @@ namespace EmotivUnityPlugin
                                 data.Add(Convert.ToDouble(ele));
                             }
                         }
-                        // UnityEngine.Debug.Log("WebSocketClient_MessageReceived: name " + property.Name + " count " + data.Count);
+                        //UnityEngine.Debug.Log("WebSocketClient_MessageReceived: name " + property.Name + " count " + data.Count + " data 1: " + data[1] + " data 2: " + data[2]);
+
+                        //ADDED BY BRANDON
+                        if(property.Name == "met") {
+                            webSocketResponse = data[2] + "," + data[4] + "," + data[7] + "," + data[9] + "," + data[11] + "," + data[13];
+                        }
+
                         StreamDataReceived(this, new StreamDataEventArgs(sid, data, property.Name));
                     }
                 }
