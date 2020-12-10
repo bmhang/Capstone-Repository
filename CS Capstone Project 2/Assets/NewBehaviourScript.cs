@@ -8,8 +8,8 @@ public class NewBehaviourScript : MonoBehaviour
     public PMDataTestScript pmDataCatcher;
 
     private int frame = 0;
-    private float[] excitement = new float[10]; //set to larger array if using real time data
-    private float[] frames = new float[10];
+    private float[] excitement = new float[3]; //set to larger array if using real time data
+    private float[] frames = new float[3];
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
                 excitement[frame] = pmDataCatcher.excitment;
 
                 //if full array, calculate regression and change light accordingly
-                if (frame == 9)
+                if (frame == 2)
                 {
                     float slope = Regression(frames, excitement);
                     LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (slope * 100);//experiment to find good factor
@@ -35,6 +35,7 @@ public class NewBehaviourScript : MonoBehaviour
                 }
 
                 frame++;
+                print("Frame: " + frame);
             } 
     }
 

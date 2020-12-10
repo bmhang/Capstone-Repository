@@ -13,6 +13,7 @@ public class DialogueController : MonoBehaviour
     public bool isDialogueActive = false;
     public Text mainTextObject;
     public GameObject advanceTextIndicator;
+    public PMDataTestScript pmDataCatcher;
     public GameObject dialogueChoice1UI;
     public GameObject dialogueChoice2UI;
     public int textAnimateSpeed = 30;
@@ -102,8 +103,16 @@ public class DialogueController : MonoBehaviour
                 dialogueChoice2UI.SetActive(true);
 
                 //Set the text for the dialogue choice
-                dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) This is the first choice.";
-                dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) This is the second choice.";
+                if (pmDataCatcher.stress > 0.7)
+                {
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) High Stress choice 1.";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) High Stress choice 2.";
+                }
+                else
+                {
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Low Stress choice 1.";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Low Stress choice 2.";
+                }
 
                 //Check if the player has pressed a button to indicate which choice to make
                 if (Input.GetButtonDown("DialogueChoice1")) //Currently tied to the "1" button

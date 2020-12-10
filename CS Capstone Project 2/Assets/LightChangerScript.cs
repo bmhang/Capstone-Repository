@@ -68,11 +68,25 @@ public class LightChangerScript : MonoBehaviour
         ceilingLight4.intensity = ceilingLight4_Intensity;
         ceilingLight5.intensity = ceilingLight5_Intensity;
         ceilingLight6.intensity = ceilingLight6_Intensity;
-        mainTableLight.intensity = mainTableLight_Intensity;
+
+        //Slowly adjust the brightness of the main table light
+        if(mainTableLight_Intensity != mainTableLight.intensity)
+        {
+            mainTableLight.intensity += mainTableLight_Intensity > mainTableLight.intensity ? 0.01f : -0.01f;
+        }
+
+        if (crystalLight3_Intensity != crystalLight3.intensity)
+        {
+            crystalLight3.intensity += crystalLight3_Intensity > crystalLight3.intensity ? 0.005f : -0.005f;
+        }
+
+        if (crystalLight4_Intensity != crystalLight4.intensity)
+        {
+            crystalLight4.intensity += crystalLight4_Intensity > crystalLight4.intensity ? 0.005f : -0.005f;
+        }
+
         crystalLight1.intensity = crystalLight1_Intensity;
         crystalLight2.intensity = crystalLight2_Intensity;
-        crystalLight3.intensity = crystalLight3_Intensity;
-        crystalLight4.intensity = crystalLight4_Intensity;
         spotLight1.intensity = spotLight1_Intensity;
         spotLight2.intensity = spotLight2_Intensity;
         spotLight3.intensity = spotLight3_Intensity;
