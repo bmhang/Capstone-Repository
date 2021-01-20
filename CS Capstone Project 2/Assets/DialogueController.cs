@@ -23,13 +23,13 @@ public class DialogueController : MonoBehaviour
         * "This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box.",
         */
         //0
-        "Once upon a time, there was a small, happy text box that lived in a weird void. The text inside this text box consisted of placeholder text that was created for the purpose of filling space. In fact, this current amount of text will fill a large amount of the space.",
+        "Good evening, and thank you for joining me here today. It's a pleasure to meet you! I look forward to getting to know you better, especially in this quaint restaurant.",
         //1
-        "However, despite that problem, this text box will always do its best to deliver the best text possible, no matter what happens. That is its sole purpose for existence: to share its text with the world and make this restaurant a better place.",
+        "There sure are a great many things going on in the world right now, aren't there? I'm grateful we're able to meet here without having to worry about anything.",
         //2
-        "Here is one more thing the text box has to say: Have a nice day!",
+        "In fact, this is a very unique restaurant in that it customizes itself to your emotions and mood. There's nothing you need to do. Simply relax and let's have a nice conversation.",
         //3
-        "Once this is finished, a choice will have been made and the text will continue on a different branch! There is no more text, so pressing the spacebar will now throw an error."
+        "So, now that we're here and waiting for our meal to arrive, what would you like to talk about?"
     };
 
     private int currentDialogue = 0;
@@ -94,7 +94,7 @@ public class DialogueController : MonoBehaviour
             //--------------------FOR POOJA-----------------------
             //Check if a choice needs to be made based on value of currentDialogue (will have to do this for all choices)
             //currentDialogue currently serves as an array index and increments each time the player presses the spacebar.
-            if(currentDialogue == 2 && textIsAnimating == false)
+            if(currentDialogue == 3 && textIsAnimating == false)
             {
                 makeChoice = true; //not used yet, but may be useful with future features
                 
@@ -105,13 +105,13 @@ public class DialogueController : MonoBehaviour
                 //Set the text for the dialogue choice
                 if (pmDataCatcher.stress > 0.7)
                 {
-                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) High Stress choice 1.";
-                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) High Stress choice 2.";
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Favorite places to go on vacation.";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Food!";
                 }
                 else
                 {
-                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Low Stress choice 1.";
-                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Low Stress choice 2.";
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Work environments.";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Family.";
                 }
 
                 //Check if the player has pressed a button to indicate which choice to make
@@ -124,8 +124,12 @@ public class DialogueController : MonoBehaviour
                     //variable incrementing up. You may want to try making another dialogue array and offsetting
                     //the value of currentDialogue so we can keep using it as an array index?
                     Array.Resize(ref dialogueArray, dialogueArray.Length + 4);
-                    string[] dialogue = {"apple", "banana", "carrots", "dates"};
-                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue + 1, 4);
+                    string[] dialogue = {
+                        "Ah, that's a great place to start! What a fantastic idea. Okay, let's see here...",
+                        "One of my favorite places to go to is the Oregon coast. There's a few reasons why. First of all, there are far fewer people there than there are on California beaches!",
+                        "Secondly, the sunsets there are absolutely beautiful. I highly recommend traveling there if you have the opportunity.",
+                        "dates" };
+                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue, 4);
                 }
                 else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button
                 {
