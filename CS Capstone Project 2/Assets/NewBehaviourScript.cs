@@ -7,9 +7,10 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public PMDataTestScript pmDataCatcher;
 
-    private int frame = 0;
-    private float[] excitement = new float[3]; //set to larger array if using real time data
-    private float[] frames = new float[3];
+    private int numData = 0; //how many data points are currently stored
+    private static int n = 4; //number of points to collect before calculating slope
+    private float[] relaxation = new float[n];
+    private float[] frames = new float[n];
 
     // Start is called before the first frame update
     void Start()
@@ -20,22 +21,28 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if(frame ==0 || excitement[frame-1] != pmDataCatcher.excitment) //deal with delay from simulator
+            if(numData == 0 || relaxation[numData-1] != pmDataCatcher.relaxation) //deal with delay from simulator
             {
-                frames[frame] = frame;
-                excitement[frame] = pmDataCatcher.excitment;
+                frames[numData] = Time.deltaTime;
+                relaxation[numData] = pmDataCatcher.relaxation;
 
                 //if full array, calculate regression and change light accordingly
-                if (frame == 2)
+                if (numData == n-1)
                 {
-                    float slope = Regression(frames, excitement);
-                    LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (slope * 100);//experiment to find good factor
+                    float slope = Regression(frames, relaxation);
+                    LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (slope * 50);//experiment to find good factor
+                    LightChangerScript.crystalLight1_Intensity = LightChangerScript.crystalLight1_Intensity + (slope * 50);
+                    //LightChangerScript.ambientLight1_Intensity = LightChangerScript.ambientLight1_Intensity + (slope * 100);
                     print("Slope: " + slope);
-                    frame = -1;
+                    numData = -1;
                 }
 
-                frame++;
-                print("Frame: " + frame);
+                numData++;
+                print("Frame: " + numData);
+                for (int i = 0; i < n; i++)
+                {
+                    print("Relaxation" + i + ": " + relaxation[i]);
+                }
             } 
     }
 
