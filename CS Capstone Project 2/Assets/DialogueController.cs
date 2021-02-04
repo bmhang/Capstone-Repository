@@ -36,7 +36,6 @@ public class DialogueController : MonoBehaviour
     private bool textIsAnimating = true; //true when the text is animating into the text box
     private bool makeChoice = false; //true when a choice needs to be made by the player
     private float currentTextPrintAmount = 0;
-    private int endOfLineCutoff = 65;
     
     // Start is called before the first frame update
     void Start()
@@ -53,24 +52,9 @@ public class DialogueController : MonoBehaviour
             //Slowly print the text into the textbox (like in a visual novel)
             if (textIsAnimating)
             {
-                currentTextPrintAmount += textAnimateSpeed * Time.deltaTime;
-
-                //Preventing the text from jumping from one line to the next if it's too long
-                if (currentTextPrintAmount < dialogueArray[currentDialogue].Length - 1 && dialogueArray[currentDialogue][(int)currentTextPrintAmount].Equals(' '))
+                if (currentTextPrintAmount < dialogueArray[currentDialogue].Length)
                 {
-                    int endOfNextWord = dialogueArray[currentDialogue].IndexOf(" ", (int)currentTextPrintAmount + 1);
-
-                    if (endOfNextWord > currentTextPrintAmount)
-                    {
-                        //print("Next word is: " + dialogueArray[currentDialogue].Substring((int)currentTextPrintAmount, endOfNextWord - (int)currentTextPrintAmount));
-
-                        if((int)currentTextPrintAmount + (endOfNextWord - (int)currentTextPrintAmount) > endOfLineCutoff)
-                        {
-                            //Push the word onto the next line if the text will run over the endOfLineCutoff value
-                            dialogueArray[currentDialogue] = dialogueArray[currentDialogue].Remove((int)currentTextPrintAmount, 1).Insert((int)currentTextPrintAmount, "\n");
-                            endOfLineCutoff += 65;
-                        }
-                    }
+                    currentTextPrintAmount += textAnimateSpeed * Time.deltaTime;
                 }
 
                 mainTextObject.text = dialogueArray[currentDialogue].Substring(0, (int)currentTextPrintAmount);
@@ -78,7 +62,6 @@ public class DialogueController : MonoBehaviour
                 if (currentTextPrintAmount >= dialogueArray[currentDialogue].Length)
                 {
                     textIsAnimating = false;
-                    endOfLineCutoff = 65;
                     currentTextPrintAmount = 0;
                 }
             }
