@@ -30,6 +30,7 @@ public class LightAdjuster : MonoBehaviour
         //Testing changes in color
         float t = Mathf.PingPong(Time.time, 5) / 5;
         ColorChangerScript.mainTableLight_Color = new Vector4(0f, t, 0f);
+        AudioChanger.music_intensity = 0.5f;
 
     }
 }
