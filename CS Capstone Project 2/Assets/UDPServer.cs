@@ -13,9 +13,14 @@ public class UDPServer : MonoBehaviour
     public string IP;
     public int port;
 
+    public bool isClient;
+
     //connection stuff
     IPEndPoint remoteEndPoint;
     UdpClient client;
+
+    //Emotion Data
+    public PMDataTestScript pmDataCatcher;
 
     private void sendString (string message)
     {
@@ -34,23 +39,26 @@ public class UDPServer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //TO SEND DATA
-        remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), port);
-        client = new UdpClient();
+        if(!isClient)
+        {
+            //TO SEND DATA
+            remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), port);
+            client = new UdpClient();
 
-        //Start sending data
-        StartCoroutine(SendAndWait(1f));
+            //Start sending data
+            StartCoroutine(SendAndWait(1f));
+        }
     }
 
     private IEnumerator SendAndWait(float waitTime)
     {
-        int currentMessage = 1;
-
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            sendString("This is test message #" + currentMessage);
-            currentMessage++;
+            string stringToSend = pmDataCatcher.engagement + " " + pmDataCatcher.excitment + " " + pmDataCatcher.focus + " " +
+                pmDataCatcher.interest + " " + pmDataCatcher.relaxation + " " + pmDataCatcher.stress;
+            sendString(stringToSend);
+            print("SENT " + stringToSend);
         }
     }
 }

@@ -13,7 +13,7 @@ public class UDPClient : MonoBehaviour
     public Text textObject;
 
     //the text that is received
-    private string text;
+    public string receivedText = "0 0 0 0 0 0";
 
     //receiving Thread
     Thread receiveThread;
@@ -36,7 +36,7 @@ public class UDPClient : MonoBehaviour
     void Update()
     {
         //DEBUG TO TEXT SCREEN
-        textObject.text = text;
+        textObject.text = receivedText;
     }
 
     //receive thread
@@ -49,9 +49,7 @@ public class UDPClient : MonoBehaviour
             {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
-                text = Encoding.UTF8.GetString(data);
-
-                print("Received message: " + text);
+                receivedText = Encoding.UTF8.GetString(data);
             }
             catch
             {

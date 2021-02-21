@@ -4062,6 +4062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IP: 192.168.0.40
   port: 8051
+  isClient: 0
+  pmDataCatcher: {fileID: 661761973}
 --- !u!1001 &582104504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4658,6 +4660,8 @@ MonoBehaviour:
   dm: {fileID: 962412889}
   UICamera: {fileID: 1808998412}
   dialogueController: {fileID: 243208519}
+  udpClient: {fileID: 1908283840}
+  isClient: 0
   engagement: -1
   excitment: -1
   focus: -1
@@ -9453,7 +9457,7 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00010681152
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 224557009628845830, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
@@ -12573,7 +12577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1808998411
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13376,6 +13380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 980123244}
+  receivedText: 0 0 0 0 0 0
   port: 8051
 --- !u!1 &1915390539
 GameObject:

@@ -11,6 +11,10 @@ public class PMDataTestScript : MonoBehaviour
     public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
     public DialogueController dialogueController;
 
+    //for networking
+    public UDPClient udpClient;
+    public bool isClient;
+
     private readonly CortexClient _ctxClient = CortexClient.Instance;
 
     public float engagement = -1;
@@ -35,7 +39,7 @@ public class PMDataTestScript : MonoBehaviour
     void Update()
     {
 
-        if(_ctxClient.webSocketResponse != null)
+        if(!isClient && _ctxClient.webSocketResponse != null) //for when we are the server
         {
             performanceValues = _ctxClient.webSocketResponse.Split(',');
 
@@ -46,6 +50,18 @@ public class PMDataTestScript : MonoBehaviour
             interest = float.Parse(performanceValues[4]);
             relaxation = float.Parse(performanceValues[3]);
             stress = float.Parse(performanceValues[2]);
+        }
+        else if(isClient)//for when we are on the headset
+        {
+            performanceValues = udpClient.receivedText.Split(' ');
+
+            dataStreamWorking = true;
+            engagement = float.Parse(performanceValues[0]);
+            excitment = float.Parse(performanceValues[1]);
+            focus = float.Parse(performanceValues[2]);
+            interest = float.Parse(performanceValues[3]);
+            relaxation = float.Parse(performanceValues[4]);
+            stress = float.Parse(performanceValues[5]);
         }
 
 
