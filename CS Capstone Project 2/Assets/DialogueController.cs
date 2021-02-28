@@ -210,7 +210,7 @@ public class DialogueController : MonoBehaviour
                 int[] arr = {3, 26, 27, 28, 29, 30, 31};
                 branchingDialogue(arr);
             }
-            else if((currentDialogue == 27 || currentDialogue == 29) && textIsAnimating == false && romance == true) 
+            else if((currentDialogue == 21 || currentDialogue == 23 || currentDialogue == 27 || currentDialogue == 29) && textIsAnimating == false && romance == true) 
             {
                 currentDialogue = 31;
             }
