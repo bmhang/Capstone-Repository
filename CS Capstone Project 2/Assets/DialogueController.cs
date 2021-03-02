@@ -21,9 +21,9 @@ public class DialogueController : MonoBehaviour
     public int textAnimateSpeed = 30;
 
     private string[] dialogueArray = {
-        /* THIS IS THE MOST AMOUNT OF TEXT THAT FITS IN THE CURRENT TEXT BOX SIZE:
-        * "This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box.",
-        */
+        //THIS IS THE MOST AMOUNT OF TEXT THAT FITS IN THE CURRENT TEXT BOX SIZE:
+        //"This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box. This is the first text in the text box.",
+        
         //0
         "Good evening, and thank you for joining me here today. It's a pleasure to meet you! I look forward to getting to know you better, especially in this quaint restaurant.",
         //1
@@ -31,8 +31,9 @@ public class DialogueController : MonoBehaviour
         //2
         "In fact, this is a very unique restaurant in that it customizes itself to your emotions and mood. There's nothing you need to do. Simply relax and let's have a nice conversation.",
         //3
-        "So, now that we're here and waiting for our meal to arrive, what would you like to talk about?"
-    };
+        "So, now that we're here and waiting for our meal to arrive, what would you like to talk about?"};
+    
+    //private string[] dialogueArray = {"1","2","3","4"};
 
     private int currentDialogue = 0;
     private bool textIsAnimating = true; //true when the text is animating into the text box
@@ -92,26 +93,21 @@ public class DialogueController : MonoBehaviour
 
                 //Set the text for the dialogue choice
                 //if (pmDataCatcher.engagement < 0.5) {}
-                dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Entertainment";
-                dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Sports";
-                dialogueChoice3UI.GetComponentInChildren<Text>().text = "(3) Personal";
+                dialogueChoice1UI.GetComponentInChildren<Text>().text = "Entertainment";
+                dialogueChoice2UI.GetComponentInChildren<Text>().text = "Sports";
+                dialogueChoice3UI.GetComponentInChildren<Text>().text = "Personal";
                 //else {}
 
                 //Check if the player has pressed a button to indicate which choice to make
                 if (Input.GetButtonDown("DialogueChoice1")) //Currently tied to the "1" button
                 {
                     print("User chose the first option!");
-                    makeChoice = false;
-                    textIsAnimating = true;
-                    Array.Resize(ref dialogueArray, dialogueArray.Length + 3);
-                    currentDialogue++;
                     string[] dialogue = {
                         "Ah, that's a great place to start! What a fantastic idea. Okay, let's see here...",
                         "What is a movie you have watched recently that you really enjoyed?",
                         "Very cool! What genre was it?"};
-                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue, 3);
+                    setBranch(dialogue);
                 }
-
                //else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button {}
             }
             else if(currentDialogue == 6 && textIsAnimating == false) 
@@ -121,68 +117,60 @@ public class DialogueController : MonoBehaviour
                 dialogueChoice2UI.SetActive(true);
                 dialogueChoice3UI.SetActive(true);
                 dialogueChoice4UI.SetActive(true);
-                dialogueChoice1UI.GetComponentInChildren<Text>().text = "(1) Romance/Drama";
-                dialogueChoice2UI.GetComponentInChildren<Text>().text = "(2) Action/Adventure";
-                dialogueChoice3UI.GetComponentInChildren<Text>().text = "(3) Comedy";
-                dialogueChoice4UI.GetComponentInChildren<Text>().text = "(4) Horror/Thriller";
+                dialogueChoice1UI.GetComponentInChildren<Text>().text = "Romance/Drama";
+                dialogueChoice2UI.GetComponentInChildren<Text>().text = "Action/Adventure";
+                dialogueChoice3UI.GetComponentInChildren<Text>().text = "Comedy";
+                dialogueChoice4UI.GetComponentInChildren<Text>().text = "Horror/Thriller";
                 
                 if (Input.GetButtonDown("DialogueChoice1")) //Romance/Drama branch - completed
                 {
                     print("User chose the first option!");
-                    makeChoice = false;
-                    textIsAnimating = true;
                     romance = true;
-                    currentDialogue++;
                     string[] dialogue = {
                         "Romance and drama are my favorite!",                                               //7
                         "Are you a hopeless romantic like myself or are you in a relationship?",            //8
-                        "(1) Hopeless romantic",                                                            //9
+                        "Hopeless romantic",                                                                //9
                         "Me too! I’m hoping I meet the one soon...",                                        //10
-                        "(1) Me too",                                                                       //11
+                        "Me too",                                                                           //11
                         "What are you looking for in a partner?",                                           //12
                         "Those are great traits to look for!",                                              //13
-                        "(2) I’m content being single for now",                                             //14
+                        "I’m content being single for now",                                                 //14
                         "That’s great! You have so much freedom to enjoy your single life!",                //15
-                        "(2) In a relationship",                                                            //16
+                        "In a relationship",                                                                //16
                         "Did you watch the movie with your SO?",                                            //17
-                        "(1) Yes",                                                                          //18
+                        "Yes",                                                                              //18
                         "Did they enjoy it?",                                                               //19
-                        "(1) Yes, they loved it!",                                                          //20
+                        "Yes, they loved it!",                                                              //20
                         "That’s awesome! I’m glad you could enjoy it together!",                            //21
-                        "(2) Not really, they just agreed to watch it because I wanted to",                 //22
+                        "Not really, they just agreed to watch it because I wanted to",                     //22
                         "That was nice of them!",                                                           //23
-                        "(2) No",                                                                           //24
+                        "No",                                                                               //24
                         "Let me guess, they aren’t really the romantic type?",                              //25
-                        "(1) Not at all",                                                                   //26
+                        "Not at all",                                                                       //26
                         "Can’t always have the same tastes. You know what they say, opposites attract!",    //27
-                        "(2) Sometimes they will watch with me, but not always",                            //28
+                        "Sometimes they will watch with me, but not always",                                //28
                         "That’s understandable.",                                                           //29
-                        "(3) Actually they love the romance they just weren’t around to watch it with me",  //30
+                        "Actually they love the romance they just weren’t around to watch it with me",      //30
                         "Bummer! You should watch it together sometime!",                                   //31
                         "How long have you been together?",                                                 //32
-                        "(1) It’s still pretty new!",                                                       //33
+                        "It’s still pretty new!",                                                           //33
                         "That’s so exciting!",                                                              //34
-                        "(2) Several months",                                                               //35
-                        "(3) About a year",                                                                 //36
-                        "(4) We’ve been together for a while now",                                          //37
+                        "Several months",                                                                   //35
+                        "About a year",                                                                     //36
+                        "We’ve been together for a while now",                                              //37
                         "That’s awesome!",                                                                  //38
                         "Do you have any advice for single people like me?",                                //39
                         "I will keep that in mind. Thanks!"};                                               //40
-                    Array.Resize(ref dialogueArray, dialogueArray.Length + dialogue.Length);
-                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue, dialogue.Length);
+                    setBranch(dialogue);
                 }
                 else if (Input.GetButtonDown("DialogueChoice2")) //Action/Adventure branch - incomplete
                 {
                     print("User chose the second option!");
-                    makeChoice = false;
-                    textIsAnimating = true;
                     action = true;
-                    currentDialogue++;
                     string[] dialogue = {
                         "I love action/adventure movies--especially ones with superheroes!",                //7
                         "I always wanted to have superpowers..."};                                          //8
-                    Array.Resize(ref dialogueArray, dialogueArray.Length + dialogue.Length);
-                    Array.Copy(dialogue, 0, dialogueArray, currentDialogue, dialogue.Length);
+                    setBranch(dialogue);
                 }
             }
             else if(currentDialogue == 8 && textIsAnimating == false && romance == true)
@@ -237,7 +225,6 @@ public class DialogueController : MonoBehaviour
                 dialogueChoice3UI.SetActive(false);
                 dialogueChoice4UI.SetActive(false);
             }
-
             //This controls whether to show the "Press Spacebar" text
             if(makeChoice == false && textIsAnimating == false && enabled == true)
             {
@@ -249,10 +236,21 @@ public class DialogueController : MonoBehaviour
             }
         }
     }
+    //this is used whenever an important choice is made and
+    //there is more dialogue that needs to be added to dialogueArray
+    private void setBranch(string[] dialogue) 
+    {
+        makeChoice = false;
+        textIsAnimating = true;
+        currentDialogue++;
+        Array.Resize(ref dialogueArray, dialogueArray.Length + dialogue.Length);
+        Array.Copy(dialogue, 0, dialogueArray, currentDialogue, dialogue.Length);
+    }
+    
     //this is used whenever the user needs to make a decision. so far the game gives the user
     //a max of four choices. index 0 of the input array is the number of choices, and the following
     //are pairs, the first of the pair is the choice and the second is the dialogue that the choice leads to
-    void branchingDialogue(int[] arr)
+    private void branchingDialogue(int[] arr)
     {
         makeChoice = true;
         dialogueChoice1UI.SetActive(true);
