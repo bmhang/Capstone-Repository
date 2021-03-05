@@ -39,8 +39,11 @@ public class DialogueController : MonoBehaviour
     private bool textIsAnimating = true; //true when the text is animating into the text box
     private bool makeChoice = false; //true when a choice needs to be made by the player
     private float currentTextPrintAmount = 0;
-    private bool romance = false;
-    private bool action = false;
+    private bool affirmation = false;
+    private bool a1, a2, a3, a4 = false;
+    private bool comfort = false;
+    private bool entertainment = false;
+    private bool romance, action = false;
     
     // Start is called before the first frame update
     void Start()
@@ -85,32 +88,155 @@ public class DialogueController : MonoBehaviour
             if(currentDialogue == 3 && textIsAnimating == false)
             {
                 makeChoice = true; //not used yet, but may be useful with future features
-                
-                //Make the dialogue choices visible to the player
+
+                //Set the text for the dialogue choice
+                if (pmDataCatcher.engagement < 0.5) 
+                {
+                    //Make the dialogue choices visible to the player
+                    dialogueChoice1UI.SetActive(true);
+                    dialogueChoice2UI.SetActive(true);
+                    dialogueChoice3UI.SetActive(true);
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "Entertainment";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "Sports";
+                    dialogueChoice3UI.GetComponentInChildren<Text>().text = "Personal";
+                    //Check if the player has pressed a button to indicate which choice to make
+                    if (Input.GetButtonDown("DialogueChoice1")) //Currently tied to the "1" button
+                    {
+                        print("User chose the first option!");
+                        entertainment = true;
+                        string[] dialogue = {
+                            "Ah, that's a great place to start! What a fantastic idea. Okay, let's see here...",
+                            "What is a movie you have watched recently that you really enjoyed?",
+                            "Very cool! What genre was it?"};
+                        setBranch(dialogue);
+                    }
+                    else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button 
+                    {
+                        print("User chose the second option!");
+                    }
+                    else if(Input.GetButtonDown("DialogueChoice3")) //Currently tied to the "3" button 
+                    {
+                        print("User chose the third option!");
+                    }
+                }
+                else
+                {
+                    dialogueChoice1UI.SetActive(true);
+                    dialogueChoice2UI.SetActive(true);
+                    dialogueChoice1UI.GetComponentInChildren<Text>().text = "Affirmations";
+                    dialogueChoice2UI.GetComponentInChildren<Text>().text = "Comfort topics";
+                    if (Input.GetButtonDown("DialogueChoice1"))
+                    {
+                        print("User chose the first option!");
+                        affirmation = true;
+                        string[] dialogue = {
+                            "Ah, that's a great place to start! What a fantastic idea. Okay, let's see here...",    //4
+                            "What affirmation resonates with you the most?"};                                       //5
+                        setBranch(dialogue);
+                    }
+                    else if (Input.GetButtonDown("DialogueChoice2")) 
+                    {
+                        print("User chose the second option!");
+                        comfort = true;
+                    }
+                }
+            }
+            else if(currentDialogue == 5 && textIsAnimating == false && affirmation == true) 
+            {
+                makeChoice = true;
                 dialogueChoice1UI.SetActive(true);
                 dialogueChoice2UI.SetActive(true);
                 dialogueChoice3UI.SetActive(true);
-
-                //Set the text for the dialogue choice
-                //if (pmDataCatcher.engagement < 0.5) {}
-                dialogueChoice1UI.GetComponentInChildren<Text>().text = "Entertainment";
-                dialogueChoice2UI.GetComponentInChildren<Text>().text = "Sports";
-                dialogueChoice3UI.GetComponentInChildren<Text>().text = "Personal";
-                //else {}
-
-                //Check if the player has pressed a button to indicate which choice to make
-                if (Input.GetButtonDown("DialogueChoice1")) //Currently tied to the "1" button
+                dialogueChoice4UI.SetActive(true);
+                dialogueChoice1UI.GetComponentInChildren<Text>().text = "Don't sweat the small stuff";
+                dialogueChoice2UI.GetComponentInChildren<Text>().text = "I am in charge of how I feel and today I am choosing happiness";
+                dialogueChoice3UI.GetComponentInChildren<Text>().text = "I am enough";
+                dialogueChoice4UI.GetComponentInChildren<Text>().text = "I have the power to create change";
+                if (Input.GetButtonDown("DialogueChoice1")) //'Don't sweat the small stuff' branch
                 {
                     print("User chose the first option!");
+                    a1 = true;
                     string[] dialogue = {
-                        "Ah, that's a great place to start! What a fantastic idea. Okay, let's see here...",
-                        "What is a movie you have watched recently that you really enjoyed?",
-                        "Very cool! What genre was it?"};
+                    "That’s amazing~ It’s so important to decrease the amount of stress in your life. Even the smallest slights alter our bodies. You are doing great because you recognize this affirmation as something important to you.", //6
+                    "What are some ways that you decrease your stress?",    //7                                                                                                                                                        
+                    "Practicing mindfulness",                               //8
+                    "Wonderful~ I would love to hear about it!",            //9 
+                    /*I love that! You are focusing on yourself and deflecting any negative thoughts. 
+                    Is there any advice you would like to give to me?
+                    Yes
+                    Thank you~ I will keep that in mind
+                    No 
+                    That’s alright, thank you~*/
+                    "Give yourself a time limit",                       
+                    "Wonderful~ I would love to hear about it!",
+                    /*Is there any advice you would like to give to me?
+                    Yes
+                    Thank you~ I will keep that in mind
+                    No 
+                    That’s alright, thank you~*/
+                    "Gain other perspectives",
+                    "Wonderful~ I would love to hear about it!",
+                    /*Is there any advice you would like to give to me?
+                    Yes
+                    Thank you~ I will keep that in mind
+                    No 
+                    That’s alright, thank you~
+                    Two or more
+                    Wonderful~ I would love to hear about them! 
+                    Is there any advice you would like to give to me?
+                    Yes
+                    Thank you~ I will keep that in mind
+                    No 
+                    That’s alright, thank you~*/
+                    "None of the above",
+                    "That’s okay~ There are many other ways to help decrease stress."
+                    /*Which one are you interested in learning about?
+                    Practicing mindfulness
+                    Mindfulness is a simple activity that allows you to deflect any negative thoughts you may be having. By being aware of your thoughts -- and noticing them in a non judgemental way --  you can condition yourself to examine them before reacting to them.
+                    Give yourself a time limit
+                    It’s important to allow yourself time to assess the thing that is causing you stress. Set a base time of 5 minutes before moving on to the problem and examine the emotions that come with your reflection. 
+                    Gain other perspectives,
+                    You are remarkably resilient and in order to practice mental stamina, view things objectively for what they are. Stress that you experience from a big event passed and this little hassle will too.
+                    None of the Above
+                    Take a minute to say what you appreciate about yourself.
+                    That’s great to hear~ You have a deep understanding of yourself and what makes you happy. It takes a lot of courage to express yourself out loud. You’re amazing!
+                    Let’s take a deep breath
+                    1… 2… 3… 4… 5…
+                    And exhale
+                    5… 4… 3… 2… 1… 
+                    Would you like for us to go over positive  together, and feel free to repeat after me if you would like.
+                    Yes please
+                    I am loved
+                    I am powerful
+                    I can achieve anything
+                    I can overcome any obstacle, big or small
+                    No, thank you
+                    "Closing note: Thank you for going on this journey with me~ I hope you have a great day. Keep doing what you're doing, everyone grows at their own pace. You are where you need to be."*/
+                    };
                     setBranch(dialogue);
                 }
-               //else if(Input.GetButtonDown("DialogueChoice2")) //Currently tied to the "2" button {}
+                else if(Input.GetButtonDown("DialogueChoice2"))
+                {
+                    print("User chose the second option!");
+                    a2 = true;
+                }
+                else if(Input.GetButtonDown("DialogueChoice3"))
+                {
+                    print("User chose the third option!");
+                    a3 = true;
+                }
+                else if(Input.GetButtonDown("DialogueChoice3"))
+                {
+                    print("User chose the third option!");
+                    a4 = true;
+                }
             }
-            else if(currentDialogue == 6 && textIsAnimating == false) 
+            else if(currentDialogue == 7 && textIsAnimating == false  && a1 == true) 
+            {
+                int[] arr = {4, 8, 9, 10, 11, 12, 13, 14, 15}; //will have to change values once the array is completed
+                branchingDialogue(arr);
+            }
+            else if(currentDialogue == 6 && textIsAnimating == false  && entertainment == true) 
             {
                 makeChoice = true;
                 dialogueChoice1UI.SetActive(true);
