@@ -11,6 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     private static int n = 4; //number of points to collect before calculating slope
     private float[] relaxation = new float[n];
     private float[] frames = new float[n];
+    private int previousChange = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +22,29 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if(numData == 0 || relaxation[numData-1] != pmDataCatcher.relaxation) //deal with delay from simulator
+            if(pmDataCatcher.relaxation != -1 && (numData == 0 || relaxation[numData-1] != pmDataCatcher.relaxation)) //deal with delay from simulator
             {
-                frames[numData] = Time.deltaTime;
+                //frames[numData] = Time.deltaTime; Doesn't give right time
+                frames[numData] = numData;
                 relaxation[numData] = pmDataCatcher.relaxation;
 
                 //if full array, calculate regression and change light accordingly
                 if (numData == n-1)
                 {
                     float slope = Regression(frames, relaxation);
-                    LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (slope * 50);//experiment to find good factor
-                    LightChangerScript.crystalLight1_Intensity = LightChangerScript.crystalLight1_Intensity + (slope * 50);
-                    //LightChangerScript.ambientLight1_Intensity = LightChangerScript.ambientLight1_Intensity + (slope * 100);
+                    
+                    if (slope > 0.01)
+                    {
+                        LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (previousChange * slope * 100);//experiment to find good factor
+                        LightChangerScript.crystalLight1_Intensity = LightChangerScript.crystalLight1_Intensity + (previousChange * slope * 100);
+                        previousChange = 1;
+                    }
+                    else if(slope < -.01)
+                    {
+                        LightChangerScript.mainTableLight_Intensity = LightChangerScript.mainTableLight_Intensity + (previousChange * slope * 100);//experiment to find good factor
+                        LightChangerScript.crystalLight1_Intensity = LightChangerScript.crystalLight1_Intensity + (previousChange * slope * 100);
+                        previousChange = -1;
+                    }
                     print("Slope: " + slope);
                     numData = -1;
                 }
@@ -42,6 +54,7 @@ public class NewBehaviourScript : MonoBehaviour
                 for (int i = 0; i < n; i++)
                 {
                     print("Relaxation" + i + ": " + relaxation[i]);
+                    print("Time" + i + frames[i]);
                 }
             } 
     }
