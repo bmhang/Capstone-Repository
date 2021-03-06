@@ -6,10 +6,14 @@ using EmotivUnityPlugin;
 public class PMDataTestScript : MonoBehaviour
 {
     /// <summary>Collects Performance Metric data from the Emotiv Data Subscriber and hides the UICamera once PM data has been subscribed to.</summary>
- 
+
     public dirox.emotiv.controller.DataSubscriber dm;
     public Camera UICamera; //This is the camera that is attached to the Emotiv Canvas
     public DialogueController dialogueController;
+
+    //for networking
+    public ClientScript udpClient;
+    public bool isClient;
 
     private readonly CortexClient _ctxClient = CortexClient.Instance;
 
@@ -35,7 +39,7 @@ public class PMDataTestScript : MonoBehaviour
     void Update()
     {
 
-        if(_ctxClient.webSocketResponse != null)
+        if (!isClient && _ctxClient.webSocketResponse != null) //for when we are the server
         {
             performanceValues = _ctxClient.webSocketResponse.Split(',');
 
@@ -47,6 +51,18 @@ public class PMDataTestScript : MonoBehaviour
             relaxation = float.Parse(performanceValues[3]);
             stress = float.Parse(performanceValues[2]);
         }
+        else if (isClient)//for when we are on the headset
+        {
+            performanceValues = udpClient.receivedText.Split(' ');
+
+            dataStreamWorking = true;
+            engagement = float.Parse(performanceValues[0]);
+            excitment = float.Parse(performanceValues[1]);
+            focus = float.Parse(performanceValues[2]);
+            interest = float.Parse(performanceValues[3]);
+            relaxation = float.Parse(performanceValues[4]);
+            stress = float.Parse(performanceValues[5]);
+        }
 
 
         //Collect the Performance Metric Data
@@ -54,28 +70,22 @@ public class PMDataTestScript : MonoBehaviour
             foreach (var ele in DataStreamManager.Instance.GetPMLists()) {
                 string chanStr  = ele;
                 double data     = DataStreamManager.Instance.GetPMData(ele);
-
                 if(chanStr == "eng" && data > -1) {
                     engagement = (float)data;
                     dataStreamWorking = true;
                 }
-
                 if(chanStr ==  "exc" && data > -1) {
                     excitment = (float)data;
                 }
-
                 if(chanStr == "foc" && data > -1) {
                     focus = (float)data;
                 }
-
                 if(chanStr == "int" && data > -1) {
                     interest = (float)data;
                 }
-
                 if(chanStr ==  "rel" && data > -1) {
                     relaxation = (float)data;
                 }
-
                 if(chanStr == "str" && data > -1) {
                     stress = (float)data;
                 }

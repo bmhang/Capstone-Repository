@@ -8,43 +8,57 @@ using System.Text;
 
 public class ServerScript : MonoBehaviour
 {
-    private static int localport;
-    public string ip;
-    public int port;
-    IPEndPoint remote_endpoint; //oculus endpoint
-    UdpClient client; //used to send data
-    public PMDataTestScript data_catcher; 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        //setting up a new endpoint
-        remote_endpoint = new IPEndPoint(IPAddress.Parse(ip), port);
-        client = new UdpClient();
-        StartCoroutine(sendAndWait(1f));
-    }
+    private static int localPort;
 
-    //co-routine (useful for timing)
-    private IEnumerator sendAndWait(float waitTime)
-    {
-        while(true) 
-        {
-            yield return new WaitForSeconds(waitTime);  //run forever
-            string data_to_send = data_catcher.engagement + " " + data_catcher.excitment + " " + data_catcher.focus + " " + data_catcher.interest + " " + data_catcher.relaxation + " " + data_catcher.stress;
-            sendString(data_to_send);
-        }
-    }
-    private void sendString(string message) 
+    public string IP;
+    public int port;
+
+    public bool isClient;
+
+    //connection stuff
+    IPEndPoint remoteEndPoint;
+    UdpClient client;
+
+    //Emotion Data
+    public PMDataTestScript pmDataCatcher;
+
+    private void sendString(string message)
     {
         try
         {
-            byte[] data = Encoding.UTF8.GetBytes(message); //converting string to UTF8
-            client.Send(data, data.Length, remote_endpoint);
-            print("data sent!");
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            client.Send(data, data.Length, remoteEndPoint);
+            print("Data sent!");
         }
         catch
         {
-            print("data not sent!");
+            print("String was not able to be sent!");
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (!isClient)
+        {
+            //TO SEND DATA
+            remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), port);
+            client = new UdpClient();
+
+            //Start sending data
+            StartCoroutine(SendAndWait(1f));
+        }
+    }
+
+    private IEnumerator SendAndWait(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            string stringToSend = pmDataCatcher.engagement + " " + pmDataCatcher.excitment + " " + pmDataCatcher.focus + " " +
+                pmDataCatcher.interest + " " + pmDataCatcher.relaxation + " " + pmDataCatcher.stress;
+            sendString(stringToSend);
+            print("SENT " + stringToSend);
         }
     }
 }
