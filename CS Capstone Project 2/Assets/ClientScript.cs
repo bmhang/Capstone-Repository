@@ -36,7 +36,7 @@ public class ClientScript : MonoBehaviour
     void Update()
     {
         //DEBUG TO TEXT SCREEN
-        textObject.text = receivedText;
+        //textObject.text = receivedText;
     }
 
     //receive thread

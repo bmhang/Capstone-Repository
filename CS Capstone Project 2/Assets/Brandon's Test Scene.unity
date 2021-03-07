@@ -1988,6 +1988,7 @@ GameObject:
   - component: {fileID: 243208515}
   - component: {fileID: 243208519}
   - component: {fileID: 243208520}
+  - component: {fileID: 243208521}
   m_Layer: 5
   m_Name: CAPSTONE_DialogueCanvas
   m_TagString: Untagged
@@ -2112,6 +2113,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 569dd9b335fd947918948b6eb129adf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChoice1: {fileID: 139525958}
+  dialogueChoice2: {fileID: 543862114}
+  dialogueChoice3: {fileID: 926719453}
+  dialogueChoice4: {fileID: 330204277}
+--- !u!114 &243208521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243208514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab1336549ed9f04691311cb2d5fdb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChoice1: {fileID: 139525958}
@@ -6043,7 +6060,7 @@ MonoBehaviour:
   UICamera: {fileID: 1808998412}
   dialogueController: {fileID: 243208519}
   udpClient: {fileID: 100350870}
-  isClient: 0
+  isClient: 1
   engagement: -1
   excitment: -1
   focus: -1
@@ -11295,7 +11312,7 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000045776367
+      value: -0.00018310547
       objectReference: {fileID: 0}
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
@@ -15726,7 +15743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IP: 192.168.0.40
   port: 8051
-  isClient: 0
+  isClient: 1
   pmDataCatcher: {fileID: 661761973}
 --- !u!1 &1871342162
 GameObject:

@@ -361,6 +361,7 @@ f72540ef0479824340370070948afc1f Zinnia.Runtime.dll:Zinnia.Pointer.ObjectPointer
 773d56635029b2a1cfccb5c2192845c6 Zinnia.Runtime.dll:Zinnia.Tracking.Follow.ObjectFollower
 9edf0788742c31d8eaaf32cf4feac747 Oculus.VR.dll:.OVRResetOrientation
 15727fa23f84f1e7558e093d78593dcc Zinnia.Runtime.dll:Zinnia.Tracking.Follow.Modifier.Property.Position.RigidbodyVelocity
+9695eedfafe298876bf4d0aebbc8e38f Assembly-CSharp.dll:.ClientScript
 45ee505480d910e5384030fd49246034 Assembly-CSharp.dll:dirox.emotiv.controller.BatteryIndicator
 cd6d03f9fdf66c9c022a09e86769b638 Zinnia.Runtime.dll:Zinnia.Event.Proxy.TransformDataProxyEmitter
 71bb6a6b6c8f052f948db64c7dd3ca4f Oculus.Platform.dll:Oculus.Platform.Samples.VrHoops.P2PNetworkBall
@@ -688,4 +689,4 @@ cd06391f9225499fb9ea605ab668b015 Oculus.Platform.dll:Oculus.Platform.Samples.VrH
 71bb6a6b6c8f052f948db64c7dd3ca4f VRTK.Prefabs.Runtime.dll:VRTK.Prefabs.Interactions.Interactors.ComponentTags.StopTouchingTag
 18235af34262c9d1c806370a73196694 Assembly-CSharp.dll:OculusSampleFramework.ButtonController
 9a674a6e739a43e3b8dae93761867b00 Assembly-CSharp-firstpass.dll:Zenject.ZenjectBinding
-9695eedfafe298876bf4d0aebbc8e38f Assembly-CSharp.dll:.ClientScript
+daaa402ac1c487e004ebd5d17dc8415d Assembly-CSharp.dll:.DialogueHighlighter
