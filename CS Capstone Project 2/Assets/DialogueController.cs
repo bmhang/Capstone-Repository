@@ -75,8 +75,16 @@ public class DialogueController : MonoBehaviour
                 }
             }
 
-            //Check if the "space" key has been pressed
-            if (Input.GetButtonDown("Jump") && textIsAnimating == false && makeChoice == false)
+            //Check if the "space" key has been pressed to finish text scroll early for convenience
+            if (Input.GetButtonDown("Jump") && textIsAnimating == true)
+            {
+                mainTextObject.text = dialogueArray[currentDialogue];
+                textIsAnimating = false;
+                currentTextPrintAmount = 0;
+            }
+
+            //Check if the "space" key has been pressed to advance to next text
+            else if (Input.GetButtonDown("Jump") && textIsAnimating == false && makeChoice == false)
             {
                 currentDialogue++;
                 advanceTextIndicator.SetActive(false);
