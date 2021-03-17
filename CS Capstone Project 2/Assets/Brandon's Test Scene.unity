@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798194, b: 0.00000005155705,
+  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798225, b: 0.00000005155705,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -8581,7 +8581,7 @@ MonoBehaviour:
   UICamera: {fileID: 1808998412}
   dialogueController: {fileID: 243208519}
   udpClient: {fileID: 100350870}
-  isClient: 1
+  isClient: 0
   engagement: -1
   excitment: -1
   focus: -1
@@ -12356,7 +12356,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4793a1aa3358e124a92f3d23b827b299, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14612,7 +14612,7 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000091552734
+      value: -0.00015258789
       objectReference: {fileID: 0}
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
@@ -21001,7 +21001,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 38d06a31fc152f04b86e8cc7dd602424, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
