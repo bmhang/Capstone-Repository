@@ -46,7 +46,7 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
         {
             floatTime = 0;
         }
-        this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.8f, this.transform.position.z);
+        this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.039f, this.transform.position.z);
 
         //Calculating some vectors for moving the sphere based on that data from Dr. Gonzalez
         engV = new Vector3((pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2);
