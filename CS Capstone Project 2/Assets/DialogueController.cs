@@ -192,7 +192,7 @@ public class DialogueController : MonoBehaviour
                         "Which one are you interested in learning about?",                                                                                                  //23
                         "Practice mindfulness",                                                                                                                             //24
                         "Mindfulness is a simple activity that allows you to deflect any negative thoughts you may be having.",                                             //25
-                        "By being aware of your thoughts -- and noticing them in a non judgemental way --  you can condition yourself to examine them before reacting to them.",    //26
+                        "By being aware of your thoughts -- and noticing them in a non judgemental way -- you can condition yourself to examine them before reacting to them.",    //26
                         "Give yourself a time limit",                                                                                                                               //27
                         "It’s important to allow yourself time to assess the thing that is causing you stress.",                                                                    //28 
                         "Set a base time of 5 minutes before moving on to the problem and examine the emotions that come with your reflection.",                                    //29
@@ -526,10 +526,11 @@ public class DialogueController : MonoBehaviour
                         "Do you like stand-up comedy?",                                 //21
                         "Love it!",                                                     //22
                         "Me too! Who is your favorite comedian?",                       //23
-                        "That’s awesome! Mine is Kevin Hart",                           //24
-                        "One of my favorite Kevin Hart quotes is “Ever argue with a female and, in the middle of the argument, you no longer feel safe because of her actions? She may start pacing back and forth real fast, breathing out her nose. You know what my girl do? When she get mad, she start talking in the third person. That’s scary as hell because that’s her way of telling me that from this point on, she is not responsible for none of her actions.”",  //25
-                        "Not really",                                                    //26
-                        "Really? You should give Dave Chappelle a chance --  he's one of my favorite comedians. I don't know anyone who doesn't enjoy his skits." //27
+                        "That’s awesome! Mine is Kevin Hart.",                          //24
+                        "One of my favorite Kevin Hart quotes is “Ever argue with a female and, in the middle of the argument, you no longer feel safe because of her actions? She may start pacing back and forth real fast, breathing out her nose...",  //25 
+                        "You know what my girl do? When she get mad, she start talking in the third person. That’s scary as hell because that’s her way of telling me that from this point on, she is not responsible for none of her actions.”",  //26
+                        "Not really",                                                    //27
+                        "Really? You should give Dave Chappelle a chance -- he's one of my favorite comedians. I don't know anyone who doesn't enjoy his skits." //28
                     };
                     setBranch(dialogue);
                 }
@@ -554,10 +555,10 @@ public class DialogueController : MonoBehaviour
             }
             else if(currentDialogue == 21 && textIsAnimating == false && comedy == true)
             {
-                int[] arr = {2, 22, 23, 26, 27};
+                int[] arr = {2, 22, 23, 27, 28};
                 branchingDialogue(arr);
             }
-            else if(currentDialogue == 27 && textIsAnimating == false && comedy == true)
+            else if((currentDialogue == 26 || currentDialogue == 28) && textIsAnimating == false && comedy == true)
             {
                 enabled = false;
             }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798194, b: 0.00000005155705,
+  m_IndirectSpecularColor: {r: 0.003996584, g: 0.00021798222, b: 0.00000005155705,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -2824,6 +2824,8 @@ MonoBehaviour:
   dialogueChoice3UI: {fileID: 926719453}
   dialogueChoice4UI: {fileID: 330204277}
   textAnimateSpeed: 30
+  sphere: {fileID: 6434998}
+  girl: {fileID: 635421331}
 --- !u!114 &243208520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8524,6 +8526,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 454160, guid: 77d8fffcec8be454599c20cb7720312f,
     type: 3}
   m_PrefabInstance: {fileID: 634382424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &635421331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1694388104871626409, guid: 678bf8bc91771fa498236de892b83d1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 570229451}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &635703388 stripped
 Transform:
@@ -15202,7 +15210,7 @@ PrefabInstance:
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0002593994
+      value: 0.00036621094
       objectReference: {fileID: 0}
     - target: {fileID: 224549283593450300, guid: 5ab790ec77d6549709f962ce62b80060,
         type: 3}
