@@ -49,17 +49,57 @@ public class BrandonTestEmotionCubeScript : MonoBehaviour
         this.transform.position = new Vector3(this.transform.position.x, Mathf.Sin(floatTime) / 12 + 1.039f, this.transform.position.z);
 
         //Calculating some vectors for moving the sphere based on that data from Dr. Gonzalez
-        engV = new Vector3((pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2, (pmDataCatcher.engagement-.5f)*2);
-        //use this if using Option2
-        //engV = new Vector3(pmDataCatcher.engagement, pmDataCatcher.engagement, pmDataCatcher.engagement;
-        intV = new Vector3(pmDataCatcher.interest, pmDataCatcher.interest, -pmDataCatcher.interest);
-        excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
-        focV = new Vector3(pmDataCatcher.focus, -pmDataCatcher.focus, pmDataCatcher.focus);
-        relV = new Vector3(pmDataCatcher.relaxation, -pmDataCatcher.relaxation, pmDataCatcher.relaxation);
-        strV = new Vector3(-pmDataCatcher.stress, pmDataCatcher.stress, -pmDataCatcher.stress);
+        if(pmDataCatcher.engagement != -1)
+        {
+            engV = new Vector3((pmDataCatcher.engagement - .5f) * 2, (pmDataCatcher.engagement - .5f) * 2, (pmDataCatcher.engagement - .5f) * 2);
+            //use this if using Option2
+            //engV = new Vector3(pmDataCatcher.engagement, pmDataCatcher.engagement, pmDataCatcher.engagement;
+            sphereLocation = engV;
+        }
 
-        //Summing the vectors, normalizing the resulting vector to length 1, then assigning it to sphere location (and shrinking it by 0.5 so it stays inside the box)
-        sphereLocation = engV + (.5f*(excV + intV)) + (.5f*(focV + relV)) + strV;
+        if (pmDataCatcher.interest != -1 && pmDataCatcher.excitment != -1)
+        {
+            intV = new Vector3(pmDataCatcher.interest, pmDataCatcher.interest, -pmDataCatcher.interest);
+            excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
+            sphereLocation = sphereLocation + (.5f * (excV + intV));
+        }
+        else if(pmDataCatcher.interest != -1 && pmDataCatcher.excitment == -1)
+        {
+            intV = new Vector3(pmDataCatcher.interest, pmDataCatcher.interest, -pmDataCatcher.interest);
+            sphereLocation = sphereLocation + intV;
+        }
+        else if(pmDataCatcher.interest == -1 && pmDataCatcher.excitment != -1)
+        {
+            excV = new Vector3(pmDataCatcher.excitment, pmDataCatcher.excitment, -pmDataCatcher.excitment);
+            sphereLocation = sphereLocation + excV;
+        }
+
+        if(pmDataCatcher.focus != -1 && pmDataCatcher.relaxation != -1)
+        {
+            focV = new Vector3(pmDataCatcher.focus, -pmDataCatcher.focus, pmDataCatcher.focus);
+            relV = new Vector3(pmDataCatcher.relaxation, -pmDataCatcher.relaxation, pmDataCatcher.relaxation);
+            sphereLocation = sphereLocation + (.5f * (focV + relV));
+        }
+        else if(pmDataCatcher.focus != -1 && pmDataCatcher.relaxation == -1)
+        {
+            focV = new Vector3(pmDataCatcher.focus, -pmDataCatcher.focus, pmDataCatcher.focus);
+            sphereLocation = sphereLocation + focV;
+        }
+        else if(pmDataCatcher.focus == -1 && pmDataCatcher.relaxation != -1)
+        {
+            relV = new Vector3(pmDataCatcher.relaxation, -pmDataCatcher.relaxation, pmDataCatcher.relaxation);
+            sphereLocation = sphereLocation + relV;
+        }
+
+        if (pmDataCatcher.stress != -1)
+        {
+            strV = new Vector3(-pmDataCatcher.stress, pmDataCatcher.stress, -pmDataCatcher.stress);
+            sphereLocation = sphereLocation + strV;
+        }
+        
+
+        //Normalizing the resulting vector to length 1, then assigning it to sphere location (and shrinking it by 0.5 so it stays inside the box)
+        //Overall Calculation(if all PM's working): sphereLocation = engV + (.5f*(excV + intV)) + (.5f*(focV + relV)) + strV;
         //Option 2 for calculating PAD
         //sphereLocation = engV + excV + intV + focV + relV + strV;
         sphereLocation.Normalize();
