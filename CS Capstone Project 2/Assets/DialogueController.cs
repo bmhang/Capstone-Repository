@@ -31,6 +31,7 @@ public class DialogueController : MonoBehaviour
         "In fact, this is a very unique restaurant in that it customizes itself to your emotions and mood. There's nothing you need to do. Simply relax and let's have a nice conversation."    //2
     };
     private string[] done = {
+        "*ding*",
         "Well, it seems like our food is ready!", 
         "I enjoyed our conversation. I'd love to continue it some other time; for now, let's dig in!"
     };
@@ -47,6 +48,8 @@ public class DialogueController : MonoBehaviour
     private bool terminate = false;
     private bool finish = false;
     private bool start = false;
+    private bool inEntertainment = false;
+    private bool inRelax = false;
     SortedList<string, string[]> d = new SortedList<string, string[]>();
     SortedList<string, string[]> d2 = new SortedList<string, string[]>();
 
@@ -579,7 +582,11 @@ public class DialogueController : MonoBehaviour
             else if((currentDialogue == 98 || currentDialogue == 100 || currentDialogue == 102) 
                     && textIsAnimating == false  && personality == true) 
             {
-                restartRelaxation();
+                Vector3 p = sphere.transform.localPosition;
+                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 7 && textIsAnimating == false && riddles == true) 
@@ -713,7 +720,11 @@ public class DialogueController : MonoBehaviour
             }
             else if(currentDialogue == 48 && textIsAnimating == false && riddles == true) 
             {
-                restartRelaxation();
+                Vector3 p = sphere.transform.localPosition;
+                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 5 && textIsAnimating == false && affirmation == true) 
@@ -968,7 +979,11 @@ public class DialogueController : MonoBehaviour
             }
             else if(currentDialogue == 47 && textIsAnimating == false && affirmation == true) 
             {
-                restartRelaxation();
+                Vector3 p = sphere.transform.localPosition;
+                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 6 && textIsAnimating == false  && entertainment == true) 
@@ -1278,7 +1293,7 @@ public class DialogueController : MonoBehaviour
                 
                 restartEntertainment();
             }
-            else if (currentDialogue == 1 && textIsAnimating == false && finish == true) 
+            else if (currentDialogue == 2 && textIsAnimating == false && finish == true) 
             {
                 enabled = false;
             }
@@ -1350,37 +1365,62 @@ public class DialogueController : MonoBehaviour
         personality = false;
         easy = false;
     }
-
     private void restartEntertainment() 
     {
-        if(!d.ContainsKey("No"))
-            d.Add("No", done);
-        
-        if(d.Count == 1 || terminate == true) 
-        {
-            if(terminate == true) 
+        if(inEntertainment == false) {
+            entertainment = true;
+            inEntertainment = true;
+            string[] starting = {
+                "", "", "",
+                "Anyways, because of the current state of the world, I find myself with a lot of extra free time on my hands.", //3
+                "Recently I've been watching a lot of movies and need some recommendations.",                                   //4
+                "What is a movie you've watched recently that you really enjoyed?",                                             //5
+                "Very cool! What genre was it?"                                                                                 //6
+            };
+            currentDialogue = 2;
+            Array.Resize(ref dialogueArray, starting.Length);
+            Array.Copy(starting, 0, dialogueArray, 0, starting.Length);
+            affirmation = false;
+            a1 = false;
+            a2 = false;
+            a3 = false; 
+            a4 = false;
+            comfort = false;
+            riddles = false;
+            personality = false;
+            easy = false;
+        }
+        else {
+            if(!d.ContainsKey("No"))
+                d.Add("No", done);
+            
+            if(d.Count == 1 || terminate == true) 
             {
-                makeChoice = false;
-                currentDialogue = 0;
+                if(terminate == true) 
+                {
+                    makeChoice = false;
+                    currentDialogue = 0;
+                }
+                else
+                    currentDialogue = -1;
+                Array.Resize(ref dialogueArray, done.Length);
+                Array.Copy(done, 0, dialogueArray, 0, done.Length);
+                finish = true;
+            } 
+            else 
+            {
+                currentDialogue = 5;
+                string[] dialogue = {"", "", "", "", "", "", "Are there any other movie genres you like?"};
+                Array.Resize(ref dialogueArray, dialogue.Length);
+                Array.Copy(dialogue, 0, dialogueArray, 0, dialogue.Length);
             }
-            else
-                currentDialogue = -1;
-            Array.Resize(ref dialogueArray, done.Length);
-            Array.Copy(done, 0, dialogueArray, 0, done.Length);
-            finish = true;
-        } 
-        else 
-        {
-            currentDialogue = 5;
-            string[] dialogue = {"", "", "", "", "", "", "Are there any other movie genres you like?"};
-            Array.Resize(ref dialogueArray, dialogue.Length);
-            Array.Copy(dialogue, 0, dialogueArray, 0, dialogue.Length);
         }
         romance = false;
         action = false;
         comedy = false; 
         documentary = false;
     }
+
     //this is used whenever more dialogue needs to be added to dialogueArray
     private void addDialogue(string[] dialogue, int index) 
     {
