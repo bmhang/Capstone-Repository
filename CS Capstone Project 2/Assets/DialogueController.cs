@@ -583,7 +583,7 @@ public class DialogueController : MonoBehaviour
                     && textIsAnimating == false  && personality == true) 
             {
                 Vector3 p = sphere.transform.localPosition;
-                if(p.x < 0 && p.y < 0 && p.z < 0)   
+                if(p.x < 0 && p.y < 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
                     restartEntertainment();
                 else 
                     restartRelaxation();
@@ -1302,7 +1302,6 @@ public class DialogueController : MonoBehaviour
             }
             else if((currentDialogue == 13 || currentDialogue == 15 || currentDialogue == 40) && textIsAnimating == false && romance == true)
             {
-                
                 Vector3 p = sphere.transform.localPosition;
                 if(p.x < 0 && p.y >= 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
                     restartRelaxation();
@@ -1360,7 +1359,6 @@ public class DialogueController : MonoBehaviour
             currentDialogue = 2;
             Array.Resize(ref dialogueArray, starting.Length);
             Array.Copy(starting, 0, dialogueArray, 0, starting.Length);
-
         }
         else 
         {
