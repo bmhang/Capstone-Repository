@@ -8,7 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     public PMDataTestScript pmDataCatcher;
 
     private int numData = 0; //how many data points are currently stored
-    private static int n = 4; //number of points to collect before calculating slope
+    private static int n = 7; //number of points to collect before calculating slope
     private float[] relaxation = new float[n];
     private float[] frames = new float[n];
     private int previousChange = 1;
