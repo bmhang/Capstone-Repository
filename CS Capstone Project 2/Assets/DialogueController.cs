@@ -583,10 +583,10 @@ public class DialogueController : MonoBehaviour
                     && textIsAnimating == false  && personality == true) 
             {
                 Vector3 p = sphere.transform.localPosition;
-                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
-                    restartRelaxation();
-                else 
+                if(p.x < 0 && p.y < 0 && p.z < 0)   
                     restartEntertainment();
+                else 
+                    restartRelaxation();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 7 && textIsAnimating == false && riddles == true) 
@@ -721,10 +721,10 @@ public class DialogueController : MonoBehaviour
             else if(currentDialogue == 48 && textIsAnimating == false && riddles == true) 
             {
                 Vector3 p = sphere.transform.localPosition;
-                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
-                    restartRelaxation();
-                else 
+                if(p.x < 0 && p.y < 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
                     restartEntertainment();
+                else 
+                    restartRelaxation();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 5 && textIsAnimating == false && affirmation == true) 
@@ -980,10 +980,10 @@ public class DialogueController : MonoBehaviour
             else if(currentDialogue == 47 && textIsAnimating == false && affirmation == true) 
             {
                 Vector3 p = sphere.transform.localPosition;
-                if((p.x < 0 && p.y >= 0 && p.z < 0) || (p.x >= 0 && p.y < 0 && p.z >= 0))    
-                    restartRelaxation();
-                else 
+                if(p.x < 0 && p.y < 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
                     restartEntertainment();
+                else 
+                    restartRelaxation();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 6 && textIsAnimating == false  && entertainment == true) 
@@ -1172,7 +1172,11 @@ public class DialogueController : MonoBehaviour
                     || currentDialogue == 103 || currentDialogue == 105 || currentDialogue == 110 || currentDialogue == 113
                     || currentDialogue == 119 || currentDialogue == 123 || currentDialogue == 128 || currentDialogue == 131) && textIsAnimating == false && documentary == true)
             {
-                restartEntertainment();
+                Vector3 p = sphere.transform.localPosition;
+                if(p.x < 0 && p.y >= 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 7 && textIsAnimating == false && comedy == true)
@@ -1200,7 +1204,11 @@ public class DialogueController : MonoBehaviour
             }
             else if((currentDialogue == 26 || currentDialogue == 28) && textIsAnimating == false && comedy == true)
             {
-                restartEntertainment();
+                Vector3 p = sphere.transform.localPosition;
+                if(p.x < 0 && p.y >= 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
            else if(currentDialogue == 8 && textIsAnimating == false && action == true)
@@ -1247,7 +1255,11 @@ public class DialogueController : MonoBehaviour
             }
             else if(currentDialogue == 41 && textIsAnimating == false && action == true)
             {
-                restartEntertainment();
+                Vector3 p = sphere.transform.localPosition;
+                if(p.x < 0 && p.y >= 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             //-------------------------------------------------------------------------------------------------------------
             else if(currentDialogue == 8 && textIsAnimating == false && romance == true)
@@ -1291,7 +1303,11 @@ public class DialogueController : MonoBehaviour
             else if((currentDialogue == 13 || currentDialogue == 15 || currentDialogue == 40) && textIsAnimating == false && romance == true)
             {
                 
-                restartEntertainment();
+                Vector3 p = sphere.transform.localPosition;
+                if(p.x < 0 && p.y >= 0 && p.z < 0 && inEntertainment == false && inRelax == false)   
+                    restartRelaxation();
+                else 
+                    restartEntertainment();
             }
             else if (currentDialogue == 2 && textIsAnimating == false && finish == true) 
             {
@@ -1331,29 +1347,47 @@ public class DialogueController : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------
     private void restartRelaxation() 
     {
-        if(!d2.ContainsKey("No"))
-            d2.Add("No", done);
-        
-        if(d2.Count == 1 || terminate == true) 
+        if(inRelax == false)
         {
-            if(terminate == true) 
-            {
-                makeChoice = false;
-                textIsAnimating = true;
-                currentDialogue = 0;
-            }
-            else
-                currentDialogue = -1;
-            Array.Resize(ref dialogueArray, done.Length);
-            Array.Copy(done, 0, dialogueArray, 0, done.Length);
-            finish = true;
-        } 
+            entertainment = false;
+            romance = false;
+            action = false;
+            comedy = false; 
+            documentary = false;
+            inRelax = true;
+            string[] starting = {
+                "", "", "", "Would you like to explore anything else?"};
+            currentDialogue = 2;
+            Array.Resize(ref dialogueArray, starting.Length);
+            Array.Copy(starting, 0, dialogueArray, 0, starting.Length);
+
+        }
         else 
         {
-            currentDialogue = 2;
-            string[] dialogue = {"", "", "", "Would you like to explore anything else?"};
-            Array.Resize(ref dialogueArray, dialogue.Length);
-            Array.Copy(dialogue, 0, dialogueArray, 0, dialogue.Length);
+            if(!d2.ContainsKey("No"))
+            d2.Add("No", done);
+        
+            if(d2.Count == 1 || terminate == true) 
+            {
+                if(terminate == true) 
+                {
+                    makeChoice = false;
+                    textIsAnimating = true;
+                    currentDialogue = 0;
+                }
+                else
+                    currentDialogue = -1;
+                Array.Resize(ref dialogueArray, done.Length);
+                Array.Copy(done, 0, dialogueArray, 0, done.Length);
+                finish = true;
+            } 
+            else 
+            {
+                currentDialogue = 2;
+                string[] dialogue = {"", "", "", "Would you like to explore anything else?"};
+                Array.Resize(ref dialogueArray, dialogue.Length);
+                Array.Copy(dialogue, 0, dialogueArray, 0, dialogue.Length);
+            }
         }
         affirmation = false;
         a1 = false;
@@ -1390,7 +1424,8 @@ public class DialogueController : MonoBehaviour
             personality = false;
             easy = false;
         }
-        else {
+        else 
+        {
             if(!d.ContainsKey("No"))
                 d.Add("No", done);
             
