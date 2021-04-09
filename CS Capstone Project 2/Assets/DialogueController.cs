@@ -1399,7 +1399,7 @@ public class DialogueController : MonoBehaviour
     }
     private void restartEntertainment() 
     {
-        if(inEntertainment == false) {
+        if(inEntertainment == false && entertainment == false) {
             entertainment = true;
             inEntertainment = true;
             string[] starting = {
@@ -1432,6 +1432,7 @@ public class DialogueController : MonoBehaviour
                 if(terminate == true) 
                 {
                     makeChoice = false;
+                    textIsAnimating = true;
                     currentDialogue = 0;
                 }
                 else
