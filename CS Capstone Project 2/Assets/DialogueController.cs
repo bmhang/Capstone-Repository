@@ -385,12 +385,16 @@ public class DialogueController : MonoBehaviour
                         {
                             affirmation = true;                                            
                             setBranch(d2["Affirmations"]);
+                            if(d2.ContainsKey("No"))
+                                currentDialogue = 5;
                             d2.Remove("Affirmations");
                         }
                         else if(val[k] == "Comfort topics") 
                         {
                             comfort = true;                                         
                             setBranch(d2["Comfort topics"]);
+                            if(d2.ContainsKey("No"))
+                                currentDialogue = 5;
                             d2.Remove("Comfort topics");
                         }
                         else if(val[k] == "No") 
@@ -1346,7 +1350,7 @@ public class DialogueController : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------
     private void restartRelaxation() 
     {
-        if(inRelax == false)
+        if(inRelax == false && entertainment == true)
         {
             entertainment = false;
             romance = false;
@@ -1363,7 +1367,7 @@ public class DialogueController : MonoBehaviour
         else 
         {
             if(!d2.ContainsKey("No"))
-            d2.Add("No", done);
+                d2.Add("No", done);
         
             if(d2.Count == 1 || terminate == true) 
             {
