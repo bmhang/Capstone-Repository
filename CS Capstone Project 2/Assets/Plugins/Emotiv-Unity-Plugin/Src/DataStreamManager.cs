@@ -382,7 +382,7 @@ namespace EmotivUnityPlugin
                     else if (key == DataStreamName.DevInfos) {
                         if (_devBuff == null){
                             _devBuff = new DevDataBuffer();
-                            _devBuff.SettingBuffer(4, 4, headerCount);
+                            _devBuff.SettingBuffer(1, 1, headerCount);
                             _devBuff.SetChannels(e[key]);
                             _dsProcess.DevDataReceived += _devBuff.OnDevDataReceived;
                             UnityEngine.Debug.Log("Subscribed done: DEV Data Stream");
@@ -935,6 +935,16 @@ namespace EmotivUnityPlugin
             // stop query headset
             _dsProcess.StopQueryHeadset();
             _dsProcess.ForceCloseWebsocket();
+        }
+
+        /// <summary>
+        /// Get current wanted headset.
+        /// </summary>
+        public string GetWantedHeadset() {
+            lock (_locker)
+            {
+                return _wantedHeadsetId;
+            }
         }
     }
 }

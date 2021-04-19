@@ -131,7 +131,8 @@ namespace EmotivUnityPlugin
                 _wscTimer = null;
             }
             // stop websocket client
-            _wSC.Close();
+            if (_wSC != null)
+                _wSC.Close();
         }
 
         /// <summary>
@@ -198,7 +199,8 @@ namespace EmotivUnityPlugin
                 // send the json message
                 _wSC.Send(request.ToString());
 
-                _methodForRequestId.Add(_nextRequestId, method);
+                // add to dictionary, replace if a key is existed
+                _methodForRequestId[_nextRequestId] = method;
 
                 if (_nextRequestId > 100) {
                     _nextRequestId = 1;
@@ -275,13 +277,11 @@ namespace EmotivUnityPlugin
                                 data.Add(Convert.ToDouble(ele));
                             }
                         }
-                        //UnityEngine.Debug.Log("WebSocketClient_MessageReceived: name " + property.Name + " count " + data.Count + " data 1: " + data[1] + " data 2: " + data[2]);
-
                         //ADDED BY BRANDON
                         if(property.Name == "met") {
                             webSocketResponse = data[2] + "," + data[4] + "," + data[7] + "," + data[9] + "," + data[11] + "," + data[13];
                         }
-
+                        // UnityEngine.Debug.Log("WebSocketClient_MessageReceived: name " + property.Name + " count " + data.Count);
                         StreamDataReceived(this, new StreamDataEventArgs(sid, data, property.Name));
                     }
                 }
